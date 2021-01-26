@@ -15,7 +15,7 @@ const NavBar = () => {
                             <button className='btn btn-primary rounded-pill mx-2'>Ingreso</button>
                             <button className='btn btn-primary rounded-pill'>Registro</button>
                         </div>
-                        <div className='col text-white d-flex mx-3'>
+                        <div className='col text-white d-flex justify-content-center mx-3'>
                             <i className="fas fa-cart-arrow-down"></i>
                             <span className='badge rounded-pill bg-primary align-self-center fs-6 mx-1'>1</span>
                         </div>
