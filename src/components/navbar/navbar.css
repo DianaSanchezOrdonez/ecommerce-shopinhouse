@@ -1,0 +1,25 @@
+.scale-logo {
+    width: 250px;
+}
+
+.fa-cart-arrow-down {
+    font-size: 30px;
+}
+
+.fa-bars {
+    font-size: 20px;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.list-menu {
+    width: 200px;
+    font-size: 18px;
+    font-weight: 600;
+}
