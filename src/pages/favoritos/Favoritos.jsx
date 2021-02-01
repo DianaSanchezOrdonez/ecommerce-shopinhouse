@@ -1,12 +1,10 @@
 import React from 'react';
 import ItemListContainer from '../../components/itemlistcontainer/ItemListContainer';
 
-const Home = () => {
-    return(
-        
-        <ItemListContainer greeting='Home' />
-        
+const Favoritos = () => {
+    return (
+        <ItemListContainer greeting='Favoritos' />
     )
 }
 
-export default Home;
+export default Favoritos
