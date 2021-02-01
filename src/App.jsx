@@ -1,14 +1,13 @@
 import './App.css';
-
-import NavBar from './components/navbar/navbar';
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import Sidebar from './components/sidebar/Sidebar';
 
 const App = () => {
   return (
     <>
-      <NavBar />
-      <div className='container-fluid'>
-      </div>
-      
+      <Router>
+        <Sidebar/>
+      </Router>
     </>
   );
 }
