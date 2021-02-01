@@ -5,6 +5,7 @@ import * as AiIcons from 'react-icons/ai';
 
 import { SiderbarData } from '../SidebarData';
 import { SubMenu } from '../submenu/SubMenu';
+import { CartWidget } from '../cartwidget/CartWidget'; 
 
 import logo from '../../assets/logo.svg'
 import './sidebar.css';
@@ -21,16 +22,22 @@ const Sidebar = () => {
             <div className='nav'>
                 <Link to='#' className="nav-icon">
                     <FaIcons.FaBars onClick = {showSidebar}/>
+                    <div className="logo">
+                        <img src={logo} alt=""/>
+                    </div>
                 </Link>
-                <div className="logo">
-                    <img src={logo} alt=""/>
-                </div>
+                <CartWidget/>
+                
             </div>
             <nav className={sidebar ? 'siderbar-nav' : 'siderbar-nav hide'}>
                 <div className="siderbar-wrap">
                     <Link to='#' className="nav-icon">
                         <AiIcons.AiOutlineClose onClick = {showSidebar}/>
+                        <div className="logo">
+                            <img src={logo} alt=""/>
+                        </div>
                     </Link>
+                    
                     {SiderbarData.map((item, index) => {
                         return <SubMenu item={item} key={index}/>
                     })}
