@@ -6,19 +6,18 @@ import "./itemcount.css";
 
 import pruebaimg from "../../assets/producto01.jpg";
 
-const ItemCount = ({ stock, initial}) => {
+const ItemCount = ({ stock, initial, onAdd}) => {
   const [count, setCount] = useState(parseInt(initial));
 
-  const onAdd = () => {
+  const addCount = () => {
     if( count < stock){
         setCount(count+1);
     }else{
         setCount(count);
-    }
-    
+    } 
   };
 
-  const onLess = () => {
+  const lessCount = () => {
     if( count > 0){
         setCount(count-1);
     }else{
@@ -34,11 +33,11 @@ const ItemCount = ({ stock, initial}) => {
         <span className="price">$10.00</span>
       </div>
       <div className="controlers">
-        <i onClick={onLess}>
+        <i onClick={lessCount}>
           <AiIcons.AiOutlineMinus />
         </i>
         <span>{count}</span>
-        <i onClick = {onAdd}>
+        <i onClick = {addCount}>
           <AiIcons.AiOutlinePlus />
         </i>
       </div>
