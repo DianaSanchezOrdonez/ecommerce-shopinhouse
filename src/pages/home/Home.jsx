@@ -3,9 +3,9 @@ import ItemListContainer from '../../containers/itemlistcontainer/ItemListContai
 
 const Home = () => {
     return(
-        
-        <ItemListContainer greeting='Home' />
-        
+        <main className='home'>
+            <ItemListContainer greeting='Home' />
+        </main>
     )
 }
 

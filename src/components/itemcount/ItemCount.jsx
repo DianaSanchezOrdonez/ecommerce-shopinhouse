@@ -2,8 +2,6 @@ import { React, useState } from "react";
 import * as AiIcons from "react-icons/ai";
 import * as IconName from "react-icons/fa";
 
-import "./itemcount.css";
-
 import pruebaimg from "../../assets/producto01.jpg";
 
 const ItemCount = ({ stock, initial, onAdd}) => {
@@ -27,11 +25,6 @@ const ItemCount = ({ stock, initial, onAdd}) => {
 
   return (
     <div className="card d-flex-column">
-      <div className="card-body d-flex-column">
-        <img src={pruebaimg} alt="" />
-        <span>Papas Fritas INKA CHIPS Bolsa 142g</span>
-        <span className="price">$10.00</span>
-      </div>
       <div className="controlers">
         <i onClick={lessCount}>
           <AiIcons.AiOutlineMinus />

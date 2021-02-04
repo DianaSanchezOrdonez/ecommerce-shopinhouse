@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 
 import './submenu.css'
 
-export const SubMenu = ({ item, key }) => {
+export const SubMenu = ({ item }) => {
     const [subnav, setSubnav] = useState(false);
 
     const showSubnav = () => setSubnav(!subnav);
 
     return (
         <>
-            <Link className='sidebar-link' to={item.path} onClick={item.subNav && showSubnav}>
+            <Link className='sidebar-link' to={item.path} onClick={item.subNav && showSubnav } >
                 <div>
                     {item.icon}
                     <span className="sidebar-label">{ item.title }</span>

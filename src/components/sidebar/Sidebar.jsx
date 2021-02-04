@@ -38,8 +38,8 @@ const Sidebar = () => {
                         </div>
                     </Link>
                     
-                    {SiderbarData.map((item, index) => {
-                        return <SubMenu item={item} key={index}/>
+                    {SiderbarData.map((item) => {
+                        return <SubMenu item={item} key={item.id}/>
                     })}
                 </div>
             </nav>
