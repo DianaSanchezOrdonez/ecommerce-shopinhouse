@@ -18,7 +18,7 @@ const ItemListContainer = ({greeting}) => {
     useEffect(() => {
         setIsLoading(true);
         const getProducts = new Promise((resolve, reject) => {
-            setTimeout(() => resolve(productList), 3000)
+            setTimeout(() => resolve(productList), 2000)
         });
 
         getProducts
@@ -35,9 +35,9 @@ const ItemListContainer = ({greeting}) => {
     }
 
     return (
-       
+
         <ItemList products={products} />
-    
+      
     )
 }
 
