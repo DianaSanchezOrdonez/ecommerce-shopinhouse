@@ -3,7 +3,7 @@ import ItemListContainer from '../../containers/itemlistcontainer/ItemListContai
 
 const Favoritos = () => {
     return (
-        <ItemListContainer greeting='Favoritos' />
+        <ItemListContainer/>
     )
 }
 
