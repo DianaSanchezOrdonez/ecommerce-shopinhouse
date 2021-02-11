@@ -6,6 +6,7 @@ const Home = () => {
     return(
         <main className='home'>
             <ItemListContainer/>
+            <ItemDetailContainer/> 
         </main>
     )
 }

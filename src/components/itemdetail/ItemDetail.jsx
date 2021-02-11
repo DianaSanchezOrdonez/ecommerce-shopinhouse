@@ -1,8 +1,13 @@
-import React, {useEffect, useState} from 'react';
+import React, { useState } from 'react';
 
 import './itemdetail.css';
 
 const ItemDetail = ({ item }) => {
+    const [count, setCount] = useState(0);
+    
+    const handleInput = ( name, value ) => {
+        setCount(value);
+    }
 
     return (
         <div className="container">
@@ -15,26 +20,23 @@ const ItemDetail = ({ item }) => {
                     <p>{item[0].description}</p>
                     <div className="count-price">
                         <label>Cantidad: </label>
-                        <input type="text"/>
+                        <input type="text" name="count" onChange = {(e) => handleInput(e.target.name, e.target.value)}/>
                         <label>Precio: </label>
-                        <span>$ {item[0].price}</span>
+                        <span>$ {item[0].price * count}</span>
                     </div>
                     <button className="btn-add-cart">Agregar al Carrito</button>
                 </div>
             </main>
-            <aside className="aside-class">
+            {/* <aside className="aside-class">
                 <div className="card-user">
                     <span>user01</span>
-                    <p>Lorem ipsum dolor sit amet</p>
                     <span>1</span>
+                    <hr/>
+                    <p>Lorem ipsum dolor sit amet</p>
                 </div>
 
-            </aside> 
+            </aside>  */}
             
-                {/* <ul key = {item[0].id}>
-                    <li>{ item[0].name }</li>
-                </ul> */}
-           
         </div>
     )
 }
