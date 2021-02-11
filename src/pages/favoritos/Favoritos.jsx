@@ -1,9 +1,10 @@
 import React from 'react';
-import ItemListContainer from '../../containers/itemlistcontainer/ItemListContainer';
+import ItemDetailContainer from '../../containers/itemdetailcontainer/ItemDetailContainer';
 
 const Favoritos = () => {
     return (
-        <ItemListContainer/>
+        
+        <ItemDetailContainer/> 
     )
 }
 

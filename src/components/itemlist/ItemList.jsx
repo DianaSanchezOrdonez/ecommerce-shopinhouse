@@ -1,5 +1,3 @@
-import ItemDetailContainer from '../../containers/itemdetailcontainer/ItemDetailContainer';
-
 const ItemList = ({ products }) => {
 
   return (

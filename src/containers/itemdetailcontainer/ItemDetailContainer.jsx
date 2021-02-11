@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
-import detailProduct from '../../mocks/detailProducts';
 import ItemDetail from '../../components/itemdetail/ItemDetail';
+import detailProduct from '../../mocks/detailProducts';
+
 
 const ItemDetailContainer = () => {
 
-    const [item, setItem] = useState([]);
+    const [item, setItem] = useState([0]);
 
     useEffect(() => {
 
@@ -21,7 +22,7 @@ const ItemDetailContainer = () => {
 
     return (
         
-        <ItemDetail item = {item}/> 
+        <ItemDetail item={item}/> 
     )
 }
 
