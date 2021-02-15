@@ -5,8 +5,8 @@ import ItemList from '../../components/itemlist/ItemList';
 
 import productList from '../../mocks/productList.js';
 
-const ItemListContainer = ( { fxIdItem }) => {
-
+const ItemListContainer = ({categoriaID}) => {
+    
     const [products, setProducts ] = useState([0]);
     const [isLoading, setIsLoading ] = useState(false);
     /* const [carrito, setCarrito] = useState([0]);
@@ -21,12 +21,19 @@ const ItemListContainer = ( { fxIdItem }) => {
             setTimeout(() => resolve(productList), 2000)
         });
 
-        getProducts
-        .then((data) => {
-            setProducts(data);
+        let productByCategory = productList.filter(product => { return product.category.toString() === categoriaID })
+
+        if(!categoriaID) {
+            getProducts
+            .then((data) => {
+                setProducts(data);
+                setIsLoading(false);
+            })
+            .catch((error) => console.log(error))
+        }else{
+            setProducts(productByCategory);
             setIsLoading(false);
-        })
-        .catch((error) => console.log(error))
+        }
 
         /* CONSUMO DE API 
         fetch('https://api.mercadolibre.com/products/search?status=active&site_id=MLA&q=Samsung')
@@ -34,7 +41,7 @@ const ItemListContainer = ( { fxIdItem }) => {
         .then((data) => console.log('data',data))
         .catch((error) => console.log(error)) */
         
-    }, [])
+    }, [categoriaID])
 
     if( isLoading ) {
         return <h1>Cargando productos...</h1>

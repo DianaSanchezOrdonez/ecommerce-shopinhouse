@@ -20,7 +20,7 @@ const Sidebar = () => {
     return (
         <>
             <div className='nav'>
-                <Link to='#' className="nav-icon">
+                <Link to={'/'} className="nav-icon">
                     <FaIcons.FaBars onClick = {showSidebar}/>
                     <div className="logo">
                         <img src={logo} alt=""/>

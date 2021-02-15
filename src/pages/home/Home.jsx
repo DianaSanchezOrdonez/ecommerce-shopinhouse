@@ -5,11 +5,10 @@ import ItemDetailContainer from '../../containers/itemdetailcontainer/ItemDetail
 
 const Home = () => {
     return(
-        <main className='home'>
+        <section className='home'>
             <ItemListContainer/>
-            <ItemDetailContainer/> 
-            <Link to={'/favoritos'}><b>Ir a Favoritos</b></Link>
-        </main>
+            {/* <ItemDetailContainer/>  */}
+        </section>
     )
 }
 

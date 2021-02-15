@@ -23,7 +23,7 @@ export const SubMenu = ({ item }) => {
             </Link>
             {subnav && item.subNav.map((item, index) => {
                 return (
-                    <Link className='dropdown-link' to={item.path} key={index}>
+                    <Link className='dropdown-link' to={`/categoria/${item.id}`} key={index}>
                         {item.icon}
                         <span className="sidebar-label">{ item.title }</span>
                     </Link>

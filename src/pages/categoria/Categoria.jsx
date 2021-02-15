@@ -1,15 +1,30 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
+import productList from '../../mocks/productList';
 import ItemListContainer from '../../containers/itemlistcontainer/ItemListContainer';
-import ItemDetailContainer from '../../containers/itemdetailcontainer/ItemDetailContainer';
 
 const Categoria = () => {
     const { categoriaID } = useParams();
+    const [ filterProduct, setFilterProduct ] = useState([0]);
+
+    /* useEffect(() => {
+        
+       let productByCategory = productList.filter(product => { return product.category.toString() === categoriaID })
+
+        setFilterProduct(productByCategory);
+
+        console.log('filterProduct', filterProduct)
+        return () => {
+            
+        }
+    }, [categoriaID])
+ */
     return(
-        <main className='home'>
-           <ItemListContainer/> 
-           <h1>HOLA {categoriaID}</h1>
-        </main>
+        <section className='home'>
+
+           <ItemListContainer categoriaID={categoriaID} />
+
+        </section>
     )
 }
 
