@@ -8,13 +8,13 @@ export const SiderbarData = [
     {
         id:1,
         title: 'Inicio',
-        path: '/inicio',
+        path: '/',
         icon: <AiIcons.AiOutlineHome/>
     },
     {
         id:2,
-        title: 'Categorías',
-        path: '/categorias',
+        title: 'Categoría',
+        path: '/categoria',
         icon: <AiIcons.AiOutlineTag/>,
         iconClosed: <AiIcons.AiOutlineCaretDown />,
         iconOpened: <AiIcons.AiOutlineCaretUp />,
@@ -22,31 +22,31 @@ export const SiderbarData = [
             {
                 id:2.1,
                 title: 'Tecnología',
-                path: '/categorias/tec',
+                path: '/categoria/tec',
                 icon: <AiIcons.AiOutlineDesktop/>,
             },
             {
                 id:2.2,
                 title: 'Hogar',
-                path: '/categorias/hogar',
+                path: '/categoria/hogar',
                 icon: <AiIcons.AiOutlineClear/>,
             },
             {
                 id:2.3,
                 title: 'Vestimenta',
-                path: '/categorias/vestimenta',
+                path: '/categoria/vestimenta',
                 icon: <AiIcons.AiOutlineSkin/>,
             },
             {
                 id:2.4,
                 title: 'Libros',
-                path: '/categorias/libros',
+                path: '/categoria/libros',
                 icon: <AiIcons.AiOutlineBook/>,
             },
             {
                 id:2.5,
                 title: 'Abarrotes',
-                path: '/categorias/abarrotes',
+                path: '/categoria/abarrotes',
                 icon: <IoIcons.IoFastFoodOutline/>,
             }
         ]

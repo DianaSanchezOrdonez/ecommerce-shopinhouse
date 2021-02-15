@@ -18,6 +18,20 @@
     padding: 10px;
     margin: 20px 10px 0 10px;
 }
+
+.card:hover {
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, .3);
+    border-left: 3px solid var(--color-secondary);
+    transition: ease-in .2s;
+}
+
+.card-controller {
+    width: 100%;
+    align-self: center;
+    padding: 10px;
+    margin: 20px 10px 0 10px;
+}
+
 .card-body img{
     width: 150px;
 }
@@ -42,9 +56,17 @@
     color:var(--color-secondary) ;
 }
 
+.controlers input[type='text'] {
+    border: none;
+    outline: none;
+    color: var(--color-dark);
+    width: 100px;
+    text-align: center;
+}
+
 .buttons button {
     width: 100%;
-    margin: 5px;
+    margin: 5px 0;
     padding: 10px;
     border: none;
     outline: none;

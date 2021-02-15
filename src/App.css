@@ -13,3 +13,7 @@
   height: 80vh;
   flex-wrap: wrap;
 }
+
+.select-link {
+  color: var(--color-secondary);
+}

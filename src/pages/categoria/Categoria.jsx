@@ -1,16 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import ItemListContainer from '../../containers/itemlistcontainer/ItemListContainer';
 import ItemDetailContainer from '../../containers/itemdetailcontainer/ItemDetailContainer';
 
-const Home = () => {
+const Categoria = () => {
+    const { categoriaID } = useParams();
     return(
         <main className='home'>
-            <ItemListContainer/>
-            <ItemDetailContainer/> 
-            <Link to={'/favoritos'}><b>Ir a Favoritos</b></Link>
+           <ItemListContainer/> 
+           <h1>HOLA {categoriaID}</h1>
         </main>
     )
 }
 
-export default Home;
+export default Categoria;
