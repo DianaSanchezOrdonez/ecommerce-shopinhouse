@@ -17,5 +17,6 @@ Una plataforma web de e-commerce que busca favorecer a aquellos pequeños negoci
 ## Prototipo
 
 Antes de la implementación se realizó un prototipo en Figma. 
-![Prototipo](https://www.figma.com/file/OPWkKR8oqf0LR2yeockm5d/Untitled?node-id=0%3A1)
+
+[Prototipo](https://www.figma.com/file/OPWkKR8oqf0LR2yeockm5d/Untitled?node-id=0%3A1)
 
