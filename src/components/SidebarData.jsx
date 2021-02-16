@@ -57,12 +57,6 @@ export const SiderbarData = [
         path: '/favoritos',
         icon: <AiIcons.AiOutlineHeart/>
     },
-    {
-        id:4,
-        title: 'Resumen',
-        path: '/resumen',
-        icon: <AiIcons.AiOutlineShoppingCart/>
-    }
 ]
 
 //export default SiderbarData;

@@ -4,7 +4,7 @@ import Sidebar from './components/sidebar/Sidebar';
 import Home from './pages/home/Home';
 import Categoria from './pages/categoria/Categoria';
 import Favoritos from './pages/favoritos/Favoritos';
-import Resumen from './pages/resumen/Resumen';
+import Detalle from './pages/detalle/Detalle';
 import NotFound from './pages/notfound/NotFound'
 
 const App = () => {
@@ -21,7 +21,7 @@ const App = () => {
           <Route path='/categoria' exact component={Home}></Route>
           <Route path='/categoria/:categoriaID' exact component={Categoria}></Route>
           <Route path='/favoritos' exact component={Favoritos}></Route>
-          <Route path='/resumen' exact component={Resumen}></Route>
+          <Route path='/item/:itemID' exact component={Detalle}></Route>
           <Route path='*' component={NotFound}></Route>
         </Switch>
       </BrowserRouter>

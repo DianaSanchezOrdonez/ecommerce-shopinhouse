@@ -26,7 +26,7 @@ const ItemDetail = ({ item }) => {
                     <p>{item[0].description}</p>
                     <div className="count-price">
                         <label>Precio: </label>
-                        <span>$ {item[0].price * count}</span>
+                        <span>S/.{item[0].price * count}</span>
                     </div>
                     <ItemCount stock={10} initial={1} handleInput={handleInput}/>
                     
