@@ -38,7 +38,7 @@ const ItemDetail = ({ item }) => {
                         <label>Precio: </label>
                         <span>S/.{item[0].price * count}</span>
                     </div>
-                    {(statusButton) ? <Link to={'/cart'} className="btn-add-cart">Terminar Compra</Link> : <ItemCount stock={item[0].stock} initial={1} count={count} handleInput={handleInput} onAdd={onAdd}/>}
+                    {(statusButton) ? <Link to={'/cart'} className="btn-add-cart">Terminar Compra</Link> : <ItemCount stock={item[0].stock} initial={1} setCount={setCount} count={count} handleInput={handleInput} onAdd={onAdd}/>}
                 </div>
                 
             </aside>  

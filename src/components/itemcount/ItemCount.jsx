@@ -2,25 +2,23 @@ import { React, useState } from "react";
 import * as AiIcons from "react-icons/ai";
 import * as IconName from "react-icons/fa";
 
-const ItemCount = ({ stock, initial, count, handleInput, onAdd }) => { 
+const ItemCount = ({ stock, initial, setCount, count, handleInput, onAdd }) => { 
   const [ statusButtons, setStatusButtons ] = useState(false);
-  
+
   const addCount = () => {
     if( count < stock){
-      console.log('count', count)
-      return count++
+      return setCount(count+1)
     }else{
-      console.log('countElse', count)
-      return count
+      return setCount(count)
     }
   };
 
   const lessCount = () => {
     if( count > 1){
       console.log('count', count)
-      return count--
+      return setCount(count-1)
     }else{
-      return count
+      return setCount(count)
     }
   }  
 
