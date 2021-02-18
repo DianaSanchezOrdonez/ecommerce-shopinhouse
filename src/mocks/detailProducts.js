@@ -3,6 +3,7 @@ const productDetail = [
     id: 1,
     name: "Papitas",
     price:20,
+    stock:10,
     pictureUrl:"https://plazavea.vteximg.com.br/arquivos/ids/318905-1000-1000/20070825.jpg?v=637238860711870000",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum ullam voluptatem iste quaerat",
@@ -17,6 +18,7 @@ const productDetail = [
     id: 2,
     name: "Zapatillas adidas",
     price:233.00,
+    stock:10,
     pictureUrl:"https://http2.mlstatic.com/D_NQ_NP_920128-MPE40223455495_122019-O.webp" ,
     description:
       "Zapatillas adidas Court80s Ee9663 - Footloose",
@@ -31,6 +33,7 @@ const productDetail = [
     id: 3,
     name: "Apple iPhone",
     price:2999.99,
+    stock:10,
     pictureUrl:"https://http2.mlstatic.com/D_Q_NP_805882-MPE43786710701_102020-AB.webp" ,
     description:
       "Apple iPhone 11 64gb",
@@ -45,6 +48,7 @@ const productDetail = [
     id: 4,
     name: "Amor Tiempos Colera",
     price:159.00,
+    stock:10,
     pictureUrl:"https://http2.mlstatic.com/D_NQ_NP_716909-MPE42081740518_062020-O.webp",
     description:
       "Amor Tiempos Colera Pasta Dura Ilustrado",
@@ -59,6 +63,7 @@ const productDetail = [
     id: 5,
     name: "Cheetos",
     price:6.50,
+    stock:10,
     pictureUrl:"https://plazavea.vteximg.com.br/arquivos/ids/318905-1000-1000/20070825.jpg?v=637238860711870000",
     description:
       "Cheetos",
@@ -67,6 +72,7 @@ const productDetail = [
     id: 6,
     name: "Smartwatch Apple Watch",
     price:1359.00,
+    stock:10,
     pictureUrl:"https://http2.mlstatic.com/D_NQ_NP_710558-MPE43786358752_102020-O.webp",
     description:
       "Smartwatch Apple Watch Se 40mm Gps",

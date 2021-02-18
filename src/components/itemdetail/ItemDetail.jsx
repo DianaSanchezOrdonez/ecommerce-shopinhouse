@@ -1,14 +1,23 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import './itemdetail.css';
 import ItemCount from '../itemcount/ItemCount';
 
 const ItemDetail = ({ item }) => {
-    const [count, setCount] = useState(1);
+    const [ count, setCount] = useState(1);
+    const [ statusButton, setStatusButton ] = useState(false);
     
-    const handleInput = ( name, value ) => {
-        console.log(value)
-        setCount(value);
+    const handleInput = ( name, value ) => {    
+        if( value <= item[0].stock){
+            setCount(value);
+        }else{
+            console.log('no se puede!');
+        }
+    } 
+
+    const onAdd = ( status, valueCount) => {
+        setStatusButton(!status)
     }
 
     return (
@@ -22,14 +31,14 @@ const ItemDetail = ({ item }) => {
             <aside className="aside-class">
                 <div className="description">
                     <h2>{item[0].name}</h2>
+                    <p>Stock {item[0].stock}</p>
                     <hr/>
                     <p>{item[0].description}</p>
                     <div className="count-price">
                         <label>Precio: </label>
                         <span>S/.{item[0].price * count}</span>
                     </div>
-                    <ItemCount stock={10} initial={1} handleInput={handleInput}/>
-                    
+                    {(statusButton) ? <Link to={'/cart'} className="btn-add-cart">Terminar Compra</Link> : <ItemCount stock={item[0].stock} initial={1} count={count} handleInput={handleInput} onAdd={onAdd}/>}
                 </div>
                 
             </aside>  

@@ -23,11 +23,9 @@ const ItemDetailContainer = () => {
 
     }, [])
 
-    console.log('detail', item)
-
     return (
         
-        <ItemDetail item={item}/> 
+        <ItemDetail item={item}/>
     )
 }
 
