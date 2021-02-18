@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/ecommerce-shopinhouse/static/css/main.0df094d1.chunk.css",
+    "main.js": "/ecommerce-shopinhouse/static/js/main.c4626912.chunk.js",
+    "main.js.map": "/ecommerce-shopinhouse/static/js/main.c4626912.chunk.js.map",
+    "runtime-main.js": "/ecommerce-shopinhouse/static/js/runtime-main.b5cae563.js",
+    "runtime-main.js.map": "/ecommerce-shopinhouse/static/js/runtime-main.b5cae563.js.map",
+    "static/js/2.d2e123b9.chunk.js": "/ecommerce-shopinhouse/static/js/2.d2e123b9.chunk.js",
+    "static/js/2.d2e123b9.chunk.js.map": "/ecommerce-shopinhouse/static/js/2.d2e123b9.chunk.js.map",
+    "static/js/3.54c8176a.chunk.js": "/ecommerce-shopinhouse/static/js/3.54c8176a.chunk.js",
+    "static/js/3.54c8176a.chunk.js.map": "/ecommerce-shopinhouse/static/js/3.54c8176a.chunk.js.map",
+    "index.html": "/ecommerce-shopinhouse/index.html",
+    "static/css/main.0df094d1.chunk.css.map": "/ecommerce-shopinhouse/static/css/main.0df094d1.chunk.css.map",
+    "static/js/2.d2e123b9.chunk.js.LICENSE.txt": "/ecommerce-shopinhouse/static/js/2.d2e123b9.chunk.js.LICENSE.txt",
+    "static/media/logo.9bdfe593.svg": "/ecommerce-shopinhouse/static/media/logo.9bdfe593.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b5cae563.js",
+    "static/js/2.d2e123b9.chunk.js",
+    "static/css/main.0df094d1.chunk.css",
+    "static/js/main.c4626912.chunk.js"
+  ]
+}
