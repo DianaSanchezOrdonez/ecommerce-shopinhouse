@@ -20,7 +20,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build -r https://8b2fdbd95ca34aa732434ac6aec00a8d7371a4d4@github.com/dianasanchezordonez.github.io/ecommerce-shopinhouse"
+    "deploy": "gh-pages -d build"
 
   },
   "eslintConfig": {
