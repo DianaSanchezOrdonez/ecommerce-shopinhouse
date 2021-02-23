@@ -10,8 +10,8 @@ const ItemList = ({ products }) => {
             <div className="card d-flex-column" >
               <Link to={`/item/${product.id}`}>
               <div className="card-body d-flex-column">
-                <img src={product.pictureUrl} alt="" />
-                <span className="span-name">{product.name}</span>
+                <img src={product.image} alt="" />
+                <span className="span-name">{product.title}</span>
                 <span className="span-price">S/. {product.price}</span>
               </div>
               </Link>

@@ -1,12 +1,25 @@
-import { React, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import './submenu.css'
 
 export const SubMenu = ({ item }) => {
     const [subnav, setSubnav] = useState(false);
-
+    const [categories, setCategories] = useState([]);
     const showSubnav = () => setSubnav(!subnav);
+
+    useEffect(() => {
+        
+        const getCategories = fetch('https://fakestoreapi.com/products/categories')
+        getCategories
+        .then(result => result.json())
+        .then(data => setCategories(data))
+        .catch(error => console.error(error))
+
+        return () => {
+
+        }
+    }, [])
 
     return (
         <>
@@ -21,11 +34,11 @@ export const SubMenu = ({ item }) => {
                     ? item.iconClosed : null}
                 </div>
             </Link>
-            {subnav && item.subNav.map((item, index) => {
+            {subnav && categories.map((item, index) => {
                 return (
-                    <Link className='dropdown-link' to={`/categoria/${item.id}`} key={index}>
+                    <Link className='dropdown-link' to={`/category/${item}`} key={index}>
                         {item.icon}
-                        <span className="sidebar-label">{ item.title }</span>
+                        <span className="sidebar-label-subnav">{ item }</span>
                     </Link>
                 )
             })}

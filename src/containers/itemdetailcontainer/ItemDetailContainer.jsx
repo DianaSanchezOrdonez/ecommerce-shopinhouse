@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import ItemDetail from '../../components/itemdetail/ItemDetail';
-import detailProduct from '../../mocks/detailProducts';
-
 
 const ItemDetailContainer = () => {
     const { itemID } = useParams();
@@ -10,13 +8,12 @@ const ItemDetailContainer = () => {
 
     useEffect(() => {
 
-        const getItems = new Promise((resolve, reject) => {
-            setTimeout(() => resolve(detailProduct), 2000)     
-        });
+        const getProducts = fetch('https://fakestoreapi.com/products');
 
-        getItems
+        getProducts
+        .then(result => result.json())
         .then((data) => {
-            let filterDetail = data.filter(el => {return el.id.toString() === itemID})
+            let filterDetail = data.filter(el => el.id.toString() === itemID )
             setItem(filterDetail)
         })
         .catch((error) => console.log(error))

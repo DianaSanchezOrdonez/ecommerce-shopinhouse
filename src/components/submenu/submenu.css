@@ -18,8 +18,13 @@
     color: var(--color-dark);
 }
 
-.sidebar-label {
+.sidebar-label, .sidebar-label-subnav {
     margin-left: 16px;
+}
+
+.sidebar-label-subnav {
+    font-size: 14px;
+    text-transform: uppercase;
 }
 
 .dropdown-link {

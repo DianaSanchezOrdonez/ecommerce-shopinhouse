@@ -17,22 +17,24 @@ const ItemListContainer = ({categoriaID}) => {
 
     useEffect(() => {
         setIsLoading(true);
-        const getProducts = new Promise((resolve, reject) => {
-            setTimeout(() => resolve(productList), 2000)
-        });
-
-        let productByCategory = productList.filter(product => { return product.category.toString() === categoriaID })
+        const getProducts = fetch('https://fakestoreapi.com/products');
 
         if(!categoriaID) {
             getProducts
+            .then((result) => result.json())
             .then((data) => {
                 setProducts(data);
                 setIsLoading(false);
             })
             .catch((error) => console.log(error))
         }else{
-            setProducts(productByCategory);
-            setIsLoading(false);
+            getProducts
+            .then((result) => result.json())
+            .then((data) => {
+                let productByCategory = data.filter(product => product.category.toString() === categoriaID )
+                setProducts(productByCategory);
+                setIsLoading(false);
+            })
         }
 
         /* CONSUMO DE API 
@@ -40,6 +42,7 @@ const ItemListContainer = ({categoriaID}) => {
         .then((result) => {return result.json()})
         .then((data) => console.log('data',data))
         .catch((error) => console.log(error)) */
+
         
     }, [categoriaID])
 

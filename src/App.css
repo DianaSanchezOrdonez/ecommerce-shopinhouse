@@ -22,3 +22,15 @@ a {
   text-decoration: none;
   color: var(--color-dark);
 }
+
+.breadcrumb {
+  width: 100%;
+  display: flex;
+  list-style: none;
+  margin: 1rem 0;
+  align-self: flex-start;
+}
+
+.breadcrumb li {
+  margin: 0 1rem;
+}

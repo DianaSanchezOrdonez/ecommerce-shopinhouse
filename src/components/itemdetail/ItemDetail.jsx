@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import './itemdetail.css';
 import ItemCount from '../itemcount/ItemCount';
@@ -7,9 +7,11 @@ import ItemCount from '../itemcount/ItemCount';
 const ItemDetail = ({ item }) => {
     const [ count, setCount] = useState(1);
     const [ statusButton, setStatusButton ] = useState(false);
+
+    const history = useHistory()
     
     const handleInput = ( name, value ) => {    
-        if( value <= item[0].stock){
+        if( value <= 10){
             setCount(value);
         }else{
             console.log('no se puede!');
@@ -24,21 +26,21 @@ const ItemDetail = ({ item }) => {
         <div className="container">
             <main className="main-class">
                 <div className="slider-img">
-                    <img src={item[0].pictureUrl} />
+                    <img src={item[0].image} />
                 </div>
                 
             </main>
             <aside className="aside-class">
                 <div className="description">
-                    <h2>{item[0].name}</h2>
-                    <p>Stock {item[0].stock}</p>
+                    <h2>{item[0].title}</h2>
+                    <p>Stock {10 - count}</p>
                     <hr/>
                     <p>{item[0].description}</p>
                     <div className="count-price">
                         <label>Precio: </label>
                         <span>S/.{item[0].price * count}</span>
                     </div>
-                    {(statusButton) ? <Link to={'/cart'} className="btn-add-cart">Terminar Compra</Link> : <ItemCount stock={item[0].stock} initial={1} setCount={setCount} count={count} handleInput={handleInput} onAdd={onAdd}/>}
+                    {(statusButton) ? <button className="btn-add-cart" onClick={() => history.push('/cart')}>Terminar Compra</button> : <ItemCount stock={10} initial={1} setCount={setCount} count={count} handleInput={handleInput} onAdd={onAdd}/>}
                 </div>
                 
             </aside>  

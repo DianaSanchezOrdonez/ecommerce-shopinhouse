@@ -17,9 +17,9 @@ const App = () => {
           <NavLink to={'/categoria'} activeClassName='select-link'>Ir a categoria</NavLink>
         </nav> */}
         <Switch>
-          <Route path='/inicio' exact component={Home}></Route>
-          <Route path='/categoria' exact component={Home}></Route>
-          <Route path='/categoria/:categoriaID' exact component={Categoria}></Route>
+          <Route path='/' exact component={Home}></Route>
+          <Route path='/category' exact component={Home}></Route>
+          <Route path='/category/:categoriaID' exact component={Categoria}></Route>
           <Route path='/favoritos' exact component={Favoritos}></Route>
           <Route path='/item/:itemID' exact component={Detalle}></Route>
           <Route path='*' component={NotFound}></Route>
