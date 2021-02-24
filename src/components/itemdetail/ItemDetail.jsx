@@ -1,14 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import './itemdetail.css';
 import ItemCount from '../itemcount/ItemCount';
 
+/**Contexto */
+import { CartContext } from '../../context/CartContext';
+
 const ItemDetail = ({ item }) => {
     const [ count, setCount] = useState(1);
     const [ statusButton, setStatusButton ] = useState(false);
 
-    const history = useHistory()
+    const history = useHistory();
+
+    const { methods, cart } = useContext(CartContext)
     
     const handleInput = ( name, value ) => {    
         if( value <= 10){
@@ -18,8 +23,9 @@ const ItemDetail = ({ item }) => {
         }
     } 
 
-    const onAdd = ( status, valueCount) => {
-        setStatusButton(!status)
+    const onAdd = ( count ) => {
+        setStatusButton(true)
+        methods.addItem({item: item, quantity: count}, count)
     }
 
     return (

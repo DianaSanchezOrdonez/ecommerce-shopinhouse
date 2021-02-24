@@ -7,7 +7,7 @@ import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs';
 const Home = () => {
     return(
         <section className='home'>
-            <Breadcrumbs/>
+            {/* <Breadcrumbs/> */}
             <ItemListContainer/>
             {/* <ItemDetailContainer/>  */}
         </section>

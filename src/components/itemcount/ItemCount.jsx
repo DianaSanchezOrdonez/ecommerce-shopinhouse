@@ -41,7 +41,7 @@ const ItemCount = ({ stock, initial, setCount, count, handleInput, onAdd }) => {
 
         <div className="buttons">
           <button className="btn-favorite"> Agregar a Favoritos</button>
-          <button className="btn-cart" onClick={() => onAdd(statusButtons,count)}> Agregar al Carrito</button>
+          <button className="btn-cart" onClick={() => onAdd(count)}> Agregar al Carrito</button>
         </div> 
         
       

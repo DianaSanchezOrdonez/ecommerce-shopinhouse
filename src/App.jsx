@@ -8,13 +8,13 @@ import Detail from './pages/detail/Detail';
 import Cart from './pages/cart/Cart';
 import NotFound from './pages/notfound/NotFound'
 
-import CartContext from './context/CartContext';
+import CartContextProvider from './context/CartContext';
 
 const App = () => {
   return (
     <>
       <BrowserRouter>
-        <CartContext>
+        <CartContextProvider>
           <Sidebar/>
           {/* <nav>
             <NavLink to={'/'} activeClassName='select-link'>Ir a home</NavLink>
@@ -29,7 +29,7 @@ const App = () => {
             <Route path='/cart' exact component={Cart}></Route>
             <Route path='*' component={NotFound}></Route>
           </Switch>
-        </CartContext>
+        </CartContextProvider>
       </BrowserRouter>
     </>
   );
