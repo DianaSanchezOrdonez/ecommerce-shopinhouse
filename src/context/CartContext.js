@@ -7,8 +7,8 @@ const CartContextProvider = ({ defaultValue = [], children}) => {
     const [cart, setCart] = useState([]);
 
     const addItem = (item, quantity) => {
-    
-        if( isInCart(item.item.id) === -1 ){
+        
+        if( isInCart(item.item[0].id) === -1 ){
             setCart([...cart, item])
         }else{
             console.log('entro a este camino: ', item.quantity)
