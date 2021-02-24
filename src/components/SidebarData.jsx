@@ -7,13 +7,13 @@ import * as RiIcons from 'react-icons/ri';
 export const SiderbarData = [
     {
         id:1,
-        title: 'Inicio',
+        title: 'Home',
         path: '/',
         icon: <AiIcons.AiOutlineHome/>
     },
     {
         id:2,
-        title: 'Categoría',
+        title: 'Categories',
         path: '/category',
         icon: <AiIcons.AiOutlineTag/>,
         iconClosed: <AiIcons.AiOutlineCaretDown />,
@@ -22,8 +22,14 @@ export const SiderbarData = [
     },
     {
         id:3,
-        title: 'Favoritos',
-        path: '/favoritos',
+        title: 'My Cart',
+        path: '/cart',
+        icon: <AiIcons.AiOutlineShoppingCart/>
+    },
+    {
+        id:4,
+        title: 'Favorite',
+        path: '/favorite',
         icon: <AiIcons.AiOutlineHeart/>
     },
 ]

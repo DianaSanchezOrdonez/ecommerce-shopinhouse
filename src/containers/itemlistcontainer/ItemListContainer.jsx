@@ -5,7 +5,7 @@ import ItemList from '../../components/itemlist/ItemList';
 
 import productList from '../../mocks/productList.js';
 
-const ItemListContainer = ({categoriaID}) => {
+const ItemListContainer = ({categoryID}) => {
     
     const [products, setProducts ] = useState([0]);
     const [isLoading, setIsLoading ] = useState(false);
@@ -19,7 +19,7 @@ const ItemListContainer = ({categoriaID}) => {
         setIsLoading(true);
         const getProducts = fetch('https://fakestoreapi.com/products');
 
-        if(!categoriaID) {
+        if(!categoryID) {
             getProducts
             .then((result) => result.json())
             .then((data) => {
@@ -31,7 +31,7 @@ const ItemListContainer = ({categoriaID}) => {
             getProducts
             .then((result) => result.json())
             .then((data) => {
-                let productByCategory = data.filter(product => product.category.toString() === categoriaID )
+                let productByCategory = data.filter(product => product.category.toString() === categoryID )
                 setProducts(productByCategory);
                 setIsLoading(false);
             })
@@ -44,7 +44,7 @@ const ItemListContainer = ({categoriaID}) => {
         .catch((error) => console.log(error)) */
 
         
-    }, [categoriaID])
+    }, [categoryID])
 
     if( isLoading ) {
         return <h1>Cargando productos...</h1>
