@@ -1,4 +1,5 @@
 import { useContext, memo, useState } from "react";
+import { useHistory } from 'react-router-dom';
 import { CartContext } from "../../context/CartContext";
 
 import * as AiIcons from "react-icons/ai";
@@ -8,6 +9,7 @@ export const CartWidget = memo(
   () => {
     const CartContextUse = useContext(CartContext);
     const [hide, setHide] = useState(true);
+    const history = useHistory();
 
     /* const showListCart = () => {
       if (hide) {
@@ -20,15 +22,15 @@ export const CartWidget = memo(
     return (
       <>
         <button
-          className="nav-icon"
-          /* onClick={showListCart} */ onMouseEnter={() => setHide(false)}
+          className={ CartContextUse.cart.length ? "nav-icon" : "hide-list"}
+          onClick={() => history.push("/cart")} onMouseEnter={() => setHide(false)}
           onMouseLeave={() => setHide(true)}
         >
           <AiIcons.AiOutlineShoppingCart />
           <span className="span-icon">{CartContextUse.cart.length}</span>
         </button>
 
-        <ul className={hide ? "list-cart hide" : "list-cart"}>
+        <ul className={hide ? "list-cart hide-list" : "list-cart"}>
           {CartContextUse.cart.map((product) => {
             return (
               <li className="d-flex-row" key={product.item[0].id}>
@@ -46,7 +48,7 @@ export const CartWidget = memo(
   },
   (oldProp, nextProp) => {
     return (
-      oldProp.CartContextUse.cart.length === nextProp.CartContextUse.cart.length
+      oldProp.CartContextUse === nextProp.CartContextUse
     );
   }
 );
