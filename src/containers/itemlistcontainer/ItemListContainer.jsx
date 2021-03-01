@@ -2,16 +2,12 @@ import React, { useState, useEffect } from "react";
 import "./itemlistcontainer.css";
 
 import ItemList from "../../components/itemlist/ItemList";
+import Loader from "../../components/loader/Loader";
 
 const ItemListContainer = ({ categoryID }) => {
   const [products, setProducts] = useState([0]);
   const [isLoading, setIsLoading] = useState(false);
-  /* const [carrito, setCarrito] = useState([0]);
-
-    const onAdd = () => {
-        setCarrito([...carrito, {name: 'papitas'} ])
-    } */
-
+  
   useEffect(() => {
     setIsLoading(true);
     const getProducts = fetch("https://fakestoreapi.com/products");
@@ -44,7 +40,7 @@ const ItemListContainer = ({ categoryID }) => {
   }, [categoryID]);
 
   if (isLoading) {
-    return <h1>Cargando productos...</h1>;
+    return <Loader/>;
   }
 
   return <ItemList products={products} />;
