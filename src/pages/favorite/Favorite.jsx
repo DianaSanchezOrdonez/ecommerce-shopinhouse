@@ -1,11 +1,8 @@
-import React from 'react';
-import ItemDetailContainer from '../../containers/itemdetailcontainer/ItemDetailContainer';
+import React from "react";
+import ItemDetailContainer from "../../containers/itemdetailcontainer/ItemDetailContainer";
 
 const Favoritos = () => {
-    return (
-        
-        <ItemDetailContainer/> 
-    )
-}
+  return <ItemDetailContainer />;
+};
 
-export default Favoritos
+export default Favoritos;
