@@ -1,10 +1,8 @@
-import { React, useState } from "react";
+import { React } from "react";
 import * as AiIcons from "react-icons/ai";
-import * as IconName from "react-icons/fa";
 
-const ItemCount = ({ stock, initial, setCount, count, handleInput, onAdd }) => {
-  const [statusButtons, setStatusButtons] = useState(false);
-
+const ItemCount = ({ stock, setCount, count, handleInput, onAdd }) => {
+  
   const addCount = () => {
     if (count < stock) {
       return setCount(count + 1);
@@ -39,15 +37,9 @@ const ItemCount = ({ stock, initial, setCount, count, handleInput, onAdd }) => {
         </i>
       </div>
 
-      {/* { (statusButtons) ? null : <div className="buttons">
-        <button className="btn-favorite"> Agregar a Favoritos</button>
-        <button className="btn-cart" onClick={() => onAdd(countItem)}> Agregar al Carrito</button>
-        </div> } */}
-
       <div className="buttons">
         <button className="btn-favorite"> Agregar a Favoritos</button>
         <button className="btn-cart" onClick={() => onAdd(count)}>
-          {" "}
           Agregar al Carrito
         </button>
       </div>

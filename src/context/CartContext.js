@@ -32,7 +32,6 @@ const CartContextProvider = ({ defaultValue = [], children }) => {
   };
 
   const removeItem = (itemId) => {
-    console.log("cart", cart);
     const cartRemove = cart.filter((product) => product.item[0].id !== itemId);
     localStorage.setItem("carrito", JSON.stringify(cartRemove));
     setCart(cartRemove);

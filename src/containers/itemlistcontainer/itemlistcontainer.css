@@ -5,13 +5,6 @@
     justify-content: center;
 }
 
-.d-flex-column {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
 .card {
     width: 200px;
     border:1px solid var(--color-light);
@@ -34,6 +27,8 @@
 
 .card-body img{
     width: 150px;
+    height: 150px;
+    object-fit: contain;
 }
 
 .span-name {

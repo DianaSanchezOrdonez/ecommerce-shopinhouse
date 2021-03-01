@@ -12,7 +12,13 @@
     padding: 0.5rem;
 }
 .product-image img{
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+.title-description {
     width: 100px;
+    text-align: center;
 }
 .product-table span {
     flex-grow: 1;

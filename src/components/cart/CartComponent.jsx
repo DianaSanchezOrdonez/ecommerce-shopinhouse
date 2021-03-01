@@ -18,13 +18,13 @@ const CartComponent = () => {
         <span>Precio U.</span>
         <span>Precio Total</span>
       </div>
-      {CartContextUse.cart.map((el) => {
+      { CartContextUse.cart.map((el) => {
         return (
           <>
             <div className="product-table" key={el.item[0].id}>
               <div className="product-image">
                 <img src={el.item[0].image} alt="" />
-                <span>{el.item[0].title}</span>
+                <span className='title-description'>{el.item[0].title}</span>
               </div>
               <span>{el.quantity}</span>
               <span>$ {el.item[0].price}</span>
@@ -40,7 +40,8 @@ const CartComponent = () => {
             </div>
           </>
         );
-      })}
+      }) 
+    }
     </>
   );
 };

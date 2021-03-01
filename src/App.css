@@ -1,8 +1,8 @@
 :root {
-  --color-primary: #3940CB;
-  --color-secondary: #4C99BB;
+  --color-primary: #3940cb;
+  --color-secondary: #4c99bb;
   --color-white: #ffffff;
-  --color-light: #E2E4ED;
+  --color-light: #e2e4ed;
   --color-dark: #413e3e;
 }
 
@@ -33,4 +33,28 @@ a {
 
 .breadcrumb li {
   margin: 0 1rem;
+}
+
+.button-primary {
+  margin: 5px 0;
+  padding: 10px;
+  border: none;
+  outline: none;
+  border-radius: 50px;
+  color: var(--color-white);
+  line-height: 1.2rem;
+  cursor: pointer;
+  background-color: var(--color-primary);
+}
+
+.d-flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.d-flex-row {
+  display: flex;
+  align-items: center;
 }
