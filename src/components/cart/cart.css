@@ -2,9 +2,8 @@
     display: flex;
     justify-content: center;
     margin: 1.5rem;
-    background-color: var(--color-light);
     color: var(--color-dark);
-    box-shadow: 3px 3px 5px rgb(0 0 0 / 30%);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, .3);
 }
 .product-image {
     flex-grow: 2;
@@ -24,8 +23,7 @@
 .btn-delete {
     border: none;
     outline: none;
-    background-color:rgba(0, 0, 0, .2);
-    color: var(--color-white);
+    color: var(--color-dark);
     padding: 1rem;
     font-size: 20px;
     cursor: pointer;
