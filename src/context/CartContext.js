@@ -9,9 +9,9 @@ const CartContextProvider = ({ defaultValue = [], children }) => {
     if (localStorage.getItem("carrito") !== null) {
       setCart(JSON.parse(localStorage.getItem("carrito")));
     }
-    /* return () => { 
-            setCart(JSON.parse(localStorage.removeItem('carrito')));
-        } */
+    return () => { 
+      setCart(JSON.parse(localStorage.removeItem('carrito')));
+    } 
   }, []);
 
   const addItem = (item, quantity) => {
@@ -38,11 +38,12 @@ const CartContextProvider = ({ defaultValue = [], children }) => {
   };
 
   const clear = () => {
+    localStorage.removeItem('carrito');
     setCart(defaultValue);
   };
 
   const isInCart = (id) => {
-    return cart.findIndex((prod) => prod.id === id);
+    return cart.findIndex((prod) => prod.item[0].id === id);
   };
 
   return (

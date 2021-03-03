@@ -7,8 +7,8 @@
 
 .span-icon {
   border-radius: 50px;
-  background-color: var(--color-primary);
-  color: var(--color-white);
+  background-color: var(--color-white);
+  color: var(--color-dark);
   width: 25px;
   height: 25px;
   font-size: 16px;
@@ -20,7 +20,7 @@
 
 .list-cart {
   position: absolute;
-  top: 65px;
+  top: 68px;
   background-color: var(--color-white);
   right: 0;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);

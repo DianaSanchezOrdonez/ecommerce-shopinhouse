@@ -55,6 +55,10 @@
     color:var(--color-secondary) ;
 }
 
+.controlers i:hover {
+    cursor: pointer;
+}
+
 .controlers input[type='text'] {
     border: none;
     outline: none;

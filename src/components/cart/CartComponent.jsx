@@ -9,6 +9,7 @@ const CartComponent = () => {
 
   return (
     <>
+      <button className="btn-danger">Eliminar todo</button>
       <div className="product-table">
         <div className="product-image">
           <span>Imagen</span>
