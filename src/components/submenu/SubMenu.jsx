@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+/**Firebase */
+import { getFirestore } from '../../firebase/index';
 
 import "./submenu.css";
 
@@ -9,11 +11,21 @@ export const SubMenu = ({ item }) => {
   const showSubnav = () => setSubnav(!subnav);
 
   useEffect(() => {
-    const getCategories = fetch("https://fakestoreapi.com/products/categories");
+    /* const getCategories = fetch("https://fakestoreapi.com/products/categories");
     getCategories
       .then((result) => result.json())
       .then((data) => setCategories(data))
-      .catch((error) => console.error(error));
+      .catch((error) => console.error(error)); */
+
+    const db = getFirestore();
+    const categoriesCollection = db.collection('Categories');
+    categoriesCollection.get()
+    .then((data) => {
+      let categoriesData = data.docs.map((category) => {
+        return {...category.data(), id: category.id}
+      })
+      setCategories(categoriesData)
+    })
 
     return () => {};
   }, []);
@@ -38,15 +50,15 @@ export const SubMenu = ({ item }) => {
         </div>
       </Link>
       {subnav &&
-        categories.map((item, index) => {
+        categories.map((item) => {
           return (
             <Link
               className="dropdown-link"
-              to={`/category/${item}`}
-              key={index}
+              to={`/category/${item.id}`}
+              key={item.id}
             >
               {item.icon}
-              <span className="sidebar-label-subnav">{item}</span>
+              <span className="sidebar-label-subnav">{item.category}</span>
             </Link>
           );
         })}

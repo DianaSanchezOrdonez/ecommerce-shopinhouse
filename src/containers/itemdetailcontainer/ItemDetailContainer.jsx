@@ -3,24 +3,28 @@ import { useParams } from "react-router-dom";
 import ItemDetail from "../../components/itemdetail/ItemDetail";
 import Loader from "../../components/loader/Loader";
 
+import {getFirestore} from '../../firebase/index';
+
 const ItemDetailContainer = () => {
   const { itemID } = useParams();
   const [item, setItem] = useState([0]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setLoading(true);
-    const getProducts = fetch("https://fakestoreapi.com/products");
-
-    getProducts
-      .then((result) => result.json())
-      .then((data) => {
-        let filterDetail = data.filter((el) => el.id.toString() === itemID);
-        setItem(filterDetail);
-        setLoading(false)
+    setLoading(true)
+    const db = getFirestore();
+    const productsCollection = db.collection('Products');
+    productsCollection.get().then((data) => { 
+      let productsData = data.docs.map((product) => {
+        return {...product.data(), id: product.id}
       })
-      .catch((error) => console.log(error));
-  }, []);
+      let productById = productsData.filter((product) => product.id === itemID)
+      setItem(productById);
+      setLoading(false)
+     })
+
+    return () => {  }
+  }, [])
 
   if(loading){
     return <Loader/>;

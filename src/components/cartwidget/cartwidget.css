@@ -19,6 +19,7 @@
 }
 
 .list-cart {
+  width: 35%;
   position: absolute;
   top: 68px;
   background-color: var(--color-white);

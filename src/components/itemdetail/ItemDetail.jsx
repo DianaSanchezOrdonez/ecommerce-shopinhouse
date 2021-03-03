@@ -16,7 +16,7 @@ const ItemDetail = ({ item }) => {
   const { methods, cart, setCart } = useContext(CartContext);
 
   const handleInput = (name, value) => {
-    if (value <= 10) {
+    if (value <= item[0].stock) {
       setCount(value);
     } else {
       console.log("no se puede!");
@@ -38,7 +38,7 @@ const ItemDetail = ({ item }) => {
       <aside className="aside-class">
         <div className="description">
           <h2>{item[0].title}</h2>
-          <p>Stock 10</p>
+          <p>Stock {item[0].stock}</p>
           <hr />
           <p>{item[0].description}</p>
           <div className="count-price">
@@ -54,7 +54,7 @@ const ItemDetail = ({ item }) => {
             </button>
           ) : (
             <ItemCount
-              stock={10}
+              stock={item[0].stock}
               initial={1}
               setCount={setCount}
               count={count}

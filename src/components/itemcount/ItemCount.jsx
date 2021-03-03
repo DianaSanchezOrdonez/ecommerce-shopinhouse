@@ -13,7 +13,6 @@ const ItemCount = ({ stock, setCount, count, handleInput, onAdd }) => {
 
   const lessCount = () => {
     if (count > 1) {
-      console.log("count", count);
       return setCount(count - 1);
     } else {
       return setCount(count);

@@ -24,6 +24,7 @@
     margin: 0 50px;
 }
 .slider-img img{
+    width: 350px;
     object-fit: contain;
     height: 400px;
 }
