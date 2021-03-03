@@ -29,7 +29,7 @@ const ItemDetail = ({ item }) => {
   };
 
   return (
-    <div className="container">
+    <div className="d-flex-row">
       <main className="main-class">
         <div className="slider-img">
           <img src={item[0].image} />

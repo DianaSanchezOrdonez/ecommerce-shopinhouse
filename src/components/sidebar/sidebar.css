@@ -18,6 +18,10 @@
     color: var(--color-white);
 }
 
+.nav-icon:hover {
+    color: var(--color-white);
+}
+
 .siderbar-nav {
     background-color:var(--color-light);
     width: 250px;

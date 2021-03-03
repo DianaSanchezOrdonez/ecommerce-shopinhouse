@@ -1,0 +1,11 @@
+.carousel {
+    width: 100%;
+}
+
+.carousel-inner {
+    background-color: var(--color-light);
+}
+
+/* .carousel-item img {
+    object-fit: contain;
+} */

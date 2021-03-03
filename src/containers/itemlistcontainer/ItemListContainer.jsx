@@ -27,7 +27,7 @@ const ItemListContainer = ({ categoryID }) => {
     const productsCollection = db.collection("Products");
 
     /*Tomamos los datos */
-    productsCollection.get().then((value) => {
+    productsCollection.limit(5).get().then((value) => {
       /* value.docs.map(product => console.log({...product.data(), id:product.id}))  */
       let productsData = value.docs.map((product) => {
         return { ...product.data(), id: product.id };
