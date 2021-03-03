@@ -16,7 +16,7 @@ const ItemDetail = ({ item }) => {
   const { methods, cart, setCart } = useContext(CartContext);
 
   const handleInput = (name, value) => {
-    if (value <= item[0].stock) {
+    if (value <= item.stock) {
       setCount(value);
     } else {
       console.log("no se puede!");
@@ -32,18 +32,18 @@ const ItemDetail = ({ item }) => {
     <div className="d-flex-row">
       <main className="main-class">
         <div className="slider-img">
-          <img src={item[0].image} />
+          <img src={item.image} />
         </div>
       </main>
       <aside className="aside-class">
         <div className="description">
-          <h2>{item[0].title}</h2>
-          <p>Stock {item[0].stock}</p>
+          <h2>{item.title}</h2>
+          <p>Stock {item.stock}</p>
           <hr />
-          <p>{item[0].description}</p>
+          <p>{item.description}</p>
           <div className="count-price">
             <label>Precio: </label>
-            <span>S/.{item[0].price * count}</span>
+            <span>S/.{item.price * count}</span>
           </div>
           {statusButton ? (
             <button
@@ -54,7 +54,7 @@ const ItemDetail = ({ item }) => {
             </button>
           ) : (
             <ItemCount
-              stock={item[0].stock}
+              stock={item.stock}
               initial={1}
               setCount={setCount}
               count={count}

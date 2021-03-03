@@ -7,7 +7,7 @@ const Slider = () => {
   return (
     <Carousel controls={false}>
       <Carousel.Item>
-        <img
+          <img
           className="d-block w-100"
           src="https://http2.mlstatic.com/optimize/o:f_webp/resources/exhibitors/MPE-Especial-celulares-2021/a7ca5be0-7891-11eb-91ce-371edb0635b0-home-slider_desktop.jpg"
           alt="First slide"

@@ -2,14 +2,18 @@ import React, { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 
 import "./cart.css";
+import { Button } from 'react-bootstrap';
+import * as IconName  from "react-icons/io5";
+
 
 const CartComponent = () => {
   const CartContextUse = useContext(CartContext);
-  console.log("CartContextUse.cart", CartContextUse.cart);
-
+  
   return (
     <>
-      <button className="btn-danger">Eliminar todo</button>
+      <div className="row justify-content-end">
+        <Button variant="danger" onClick={() => CartContextUse.methods.clear()}><IconName.IoTrashBinOutline />Empty Cart</Button> 
+      </div>
       <div className="product-table">
         <div className="product-image">
           <span>Imagen</span>

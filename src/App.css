@@ -47,11 +47,6 @@ a, a:hover {
   background-color: var(--color-primary);
 }
 
-h2 {
-  margin-top: 1rem;
-  font-size: 1.5rem;
-}
-
 .d-flex-column {
   display: flex;
   flex-direction: column;
@@ -62,4 +57,22 @@ h2 {
 .d-flex-row {
   display: flex;
   align-items: center;
+}
+
+/*ESTILOS PERSONALIZADOS DE BOOTSTRAP*/
+.row {
+  width: 100%;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+.btn-danger {
+  margin: 1rem 0.5rem 0;
+}
+
+svg{
+  font-size: 1.5rem;
+  margin-right: 0.3rem;
 }

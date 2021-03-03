@@ -14,12 +14,8 @@ const ItemDetailContainer = () => {
     setLoading(true)
     const db = getFirestore();
     const productsCollection = db.collection('Products');
-    productsCollection.get().then((data) => { 
-      let productsData = data.docs.map((product) => {
-        return {...product.data(), id: product.id}
-      })
-      let productById = productsData.filter((product) => product.id === itemID)
-      setItem(productById);
+    productsCollection.doc(itemID).get().then((data) => { 
+      setItem({...data.data(), id: data.id});
       setLoading(false)
      })
 

@@ -21,7 +21,8 @@
 .list-cart {
   width: 35%;
   position: absolute;
-  top: 68px;
+  z-index: 1;
+  top: 80px;
   background-color: var(--color-white);
   right: 0;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
