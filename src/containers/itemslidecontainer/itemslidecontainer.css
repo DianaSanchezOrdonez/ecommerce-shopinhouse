@@ -2,6 +2,7 @@
     width: 100%;
     overflow: hidden;
     position: relative;
+    margin-bottom: 2rem;
 }
 .container-slider .slider-items {
     display: flex;

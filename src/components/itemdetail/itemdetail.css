@@ -6,8 +6,9 @@
     width: 50%;
     box-sizing: border-box;
 }
+
 .aside-class {
-    margin: 10px;
+    margin-top: 10px;
     width: 40%;
     box-sizing: border-box;
     border:1px solid var(--color-light); 

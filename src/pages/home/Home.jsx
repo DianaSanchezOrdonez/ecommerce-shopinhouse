@@ -11,7 +11,6 @@ const Home = () => {
       {/* <Breadcrumbs/> */}
       <Slider/>
       <ItemSlideContainer />
-      <Footer />
       {/* <ItemDetailContainer/>  */}
     </section>
   );

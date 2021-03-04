@@ -7,6 +7,7 @@ import Favorite from "./pages/favorite/Favorite";
 import Detail from "./pages/detail/Detail";
 import Cart from "./pages/cart/Cart";
 import NotFound from "./pages/notfound/NotFound";
+import Footer from "./components/footer/Footer"
 
 import CartContextProvider from "./context/CartContext";
 
