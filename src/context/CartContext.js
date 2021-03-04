@@ -15,7 +15,7 @@ const CartContextProvider = ({ defaultValue = [], children }) => {
   }, []);
 
   const addItem = (item, quantity) => {
-    if (isInCart(item.item[0].id) === -1) {
+    if (isInCart(item.item.id) === -1) {
       localStorage.setItem("carrito", JSON.stringify([...cart, item]));
       setCart([...cart, item]);
     } else {
@@ -32,7 +32,7 @@ const CartContextProvider = ({ defaultValue = [], children }) => {
   };
 
   const removeItem = (itemId) => {
-    const cartRemove = cart.filter((product) => product.item[0].id !== itemId);
+    const cartRemove = cart.filter((product) => product.item.id !== itemId);
     localStorage.setItem("carrito", JSON.stringify(cartRemove));
     setCart(cartRemove);
   };
@@ -43,7 +43,7 @@ const CartContextProvider = ({ defaultValue = [], children }) => {
   };
 
   const isInCart = (id) => {
-    return cart.findIndex((prod) => prod.item[0].id === id);
+    return cart.findIndex((prod) => prod.item.id === id);
   };
 
   return (

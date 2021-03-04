@@ -33,10 +33,10 @@ export const CartWidget = memo(
         <ul className={hide ? "list-cart hide-list" : "list-cart"}>
           {CartContextUse.cart.map((product) => {
             return (
-              <li className="d-flex-row" key={product.item[0].id}>
-                <img src={product.item[0].image} />
+              <li className="d-flex-row" key={product.item.id}>
+                <img src={product.item.image} />
                 <span className="widget-description">
-                  {product.item[0].title}
+                  {product.item.title}
                 </span>
                 <span>{product.quantity}</span>
               </li>

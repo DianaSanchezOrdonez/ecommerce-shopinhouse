@@ -26,18 +26,18 @@ const CartComponent = () => {
       { CartContextUse.cart.map((el) => {
         return (
           <>
-            <div className="product-table" key={el.item[0].id}>
+            <div className="product-table" key={el.item.id}>
               <div className="product-image">
-                <img src={el.item[0].image} alt="" />
-                <span className='title-description'>{el.item[0].title}</span>
+                <img src={el.item.image} alt="" />
+                <span className='title-description'>{el.item.title}</span>
               </div>
               <span>{el.quantity}</span>
-              <span>$ {el.item[0].price}</span>
-              <span>$ {el.quantity * el.item[0].price}</span>
+              <span>$ {el.item.price}</span>
+              <span>$ {el.quantity * el.item.price}</span>
               <button
                 className="btn-delete"
                 onClick={() => {
-                  CartContextUse.methods.removeItem(el.item[0].id);
+                  CartContextUse.methods.removeItem(el.item.id);
                 }}
               >
                 x

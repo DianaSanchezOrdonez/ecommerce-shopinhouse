@@ -5,7 +5,9 @@ import Loader from "../../components/loader/Loader";
 
 import { getFirestore } from "../../firebase/index";
 
-const ItemSlideContainer = ({ categoryID }) => {
+import "./itemslidecontainer.css";
+
+const ItemSlideContainer = ({}) => {
   const [products, setProducts] = useState([0]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -18,35 +20,72 @@ const ItemSlideContainer = ({ categoryID }) => {
     const productsCollection = db.collection("Products");
 
     /*Tomamos los datos */
-    productsCollection.limit(5).get().then((value) => {
-      /* value.docs.map(product => console.log({...product.data(), id:product.id}))  */
-      let productsData = value.docs.map((product) => {
-        return { ...product.data(), id: product.id };
-      });
-      if (!categoryID) {
+    productsCollection
+      .limit(8)
+      .get()
+      .then((value) => {
+        /* value.docs.map(product => console.log({...product.data(), id:product.id}))  */
+        let productsData = value.docs.map((product) => {
+          return { ...product.data(), id: product.id };
+        });
         setProducts(productsData);
         setIsLoading(false);
-      } else {
-        let productByCategory = productsData.filter(
-          (product) => product.categoryId === categoryID
-        );
-        setProducts(productByCategory);
-        setIsLoading(false);
-      }
-    });
+      });
 
     return () => {};
-  }, [categoryID]);
+  }, []);
 
   if (isLoading) {
     return <Loader />;
   }
 
-  return(
-      
-    products.map((product) => { return <SliderProducts product={product} key={product.id} />})
-        
-  )
+  return (
+    <div className="container-slider">
+      <div class="slider-items">
+        {products.map((product) => {
+          return <SliderProducts product={product} key={product.id} />;
+        })}
+      </div>
+    </div>
+  );
 };
 
 export default ItemSlideContainer;
+
+{
+  /* <div class="container">
+    <div class="flechas">
+        <div class="f-izq"></div>
+        <div class="f-der"></div>
+    </div>
+    <!--*******************   ITEMS *******************-->
+    <div class="items">
+        <div class="carta">
+            <p class="nombre">Messi</p><img src="http://media.cubadebate.cu/wp-content/uploads/2019/05/Messi-bota-de-oro-e1558749680241.jpg" />
+            <p class="bajada">Lorem Ipsum alguno</p>
+        </div>
+        <div class="carta">
+            <p class="nombre">Messi</p><img src="http://media.cubadebate.cu/wp-content/uploads/2019/05/Messi-bota-de-oro-e1558749680241.jpg" />
+            <p class="bajada">Lorem Ipsum alguno</p>
+        </div>
+        <div class="carta">
+            <p class="nombre">Messi</p><img src="http://media.cubadebate.cu/wp-content/uploads/2019/05/Messi-bota-de-oro-e1558749680241.jpg" />
+            <p class="bajada">Lorem Ipsum alguno</p>
+        </div>
+        <div class="carta">
+            <p class="nombre">Messi</p><img src="http://media.cubadebate.cu/wp-content/uploads/2019/05/Messi-bota-de-oro-e1558749680241.jpg" />
+            <p class="bajada">Lorem Ipsum alguno</p>
+        </div>
+        <div class="carta">
+            <p class="nombre">Messi</p><img src="http://media.cubadebate.cu/wp-content/uploads/2019/05/Messi-bota-de-oro-e1558749680241.jpg" />
+            <p class="bajada">Lorem Ipsum alguno</p>
+        </div>
+        <div class="carta">
+            <p class="nombre">Messi</p><img src="http://media.cubadebate.cu/wp-content/uploads/2019/05/Messi-bota-de-oro-e1558749680241.jpg" />
+            <p class="bajada">Lorem Ipsum alguno</p>
+        </div>
+    </div>
+    <!--*******************  ITEMS ****************-->
+</div>
+ */
+}
