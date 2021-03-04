@@ -7,7 +7,7 @@ const Footer = () => {
     return (
         <footer className="d-flex-row justify-content-between">
            <div className="info-copyright d-flex-column">
-               <span>Copyright &copy; 2021</span>
+               <span>Copyright &copy; 2021 </span>
                <span>Diana Sánchez Ordoñez</span>
             </div>
             <div className="social-media">
