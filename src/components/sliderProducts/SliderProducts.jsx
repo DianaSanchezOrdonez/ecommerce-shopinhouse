@@ -9,7 +9,7 @@ const SliderProducts = ({ product }) => {
             <div className="card-body d-flex-column">
             <img src={product.image} alt="" />
             <span className="span-name">{product.title}</span>
-            <span className="span-price">S/. {product.price}</span>
+            <span className="span-price">$ {product.price}</span>
             </div>
         </Link>
         </div>  

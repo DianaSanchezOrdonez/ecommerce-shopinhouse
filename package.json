@@ -1,6 +1,6 @@
 {
   "name": "ecommerce-shopinhouse",
-  "homepage": "https://dianasanchezordonez.github.io/ecommerce-shopinhouse",
+  "homepage": "https://ecommerce-shopinhouse.herokuapp.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

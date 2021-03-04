@@ -42,8 +42,8 @@ const ItemDetail = ({ item }) => {
           <hr />
           <p>{item.description}</p>
           <div className="count-price">
-            <label>Precio: </label>
-            <span>S/.{item.price * count}</span>
+            <label>Price: </label>
+            <span>$ {item.price * count}</span>
           </div>
           {statusButton ? (
             <button
