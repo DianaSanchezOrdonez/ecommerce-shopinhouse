@@ -13,7 +13,7 @@ const ItemDetail = ({ item }) => {
 
   const history = useHistory();
 
-  const { methods, cart, setCart } = useContext(CartContext);
+  const { methods, cart, setCart, favorite } = useContext(CartContext);
 
   const handleInput = (name, value) => {
     if (value <= item.stock) {
@@ -27,6 +27,10 @@ const ItemDetail = ({ item }) => {
     setStatusButton(true);
     methods.addItem({ item: item, quantity: count }, count);
   };
+
+  const onAddFavorite = () => {
+    methods.addFavorite({ item: item });
+  }
 
   return (
     <div className="d-flex-row">
@@ -60,6 +64,7 @@ const ItemDetail = ({ item }) => {
               count={count}
               handleInput={handleInput}
               onAdd={onAdd}
+              onAddFavorite={onAddFavorite}
             />
           )}
         </div>

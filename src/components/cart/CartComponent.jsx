@@ -16,12 +16,12 @@ const CartComponent = () => {
       </div>
       <div className="product-table">
         <div className="product-image">
-          <span>Imagen</span>
-          <span>Descripción</span>
+          <span>Image</span>
+          <span>Description</span>
         </div>
-        <span>Cantidad</span>
-        <span>Precio U.</span>
-        <span>Precio Total</span>
+        <span>Count</span>
+        <span>U. Price</span>
+        <span>Total Price</span>
       </div>
       { CartContextUse.cart.map((el) => {
         return (

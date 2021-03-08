@@ -7,7 +7,7 @@ import ItemSlideContainer from "../../containers/itemslidecontainer/ItemSlideCon
 
 const Home = () => {
   return (
-    <div className="container-all d-flex-column">
+    <div className="container-all">
       <section className="home">
         {/* <Breadcrumbs/> */}
         <Slider />

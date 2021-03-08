@@ -4,6 +4,7 @@ export const CartContext = createContext();
 
 const CartContextProvider = ({ defaultValue = [], children }) => {
   const [cart, setCart] = useState([]);
+  const [favorite, setFavorite] = useState([]);
 
   useEffect(() => {
     if (localStorage.getItem("carrito") !== null) {
@@ -31,6 +32,10 @@ const CartContextProvider = ({ defaultValue = [], children }) => {
     }
   };
 
+  const addFavorite = (item) => {
+    setFavorite([...favorite, item]);
+  }
+
   const removeItem = (itemId) => {
     const cartRemove = cart.filter((product) => product.item.id !== itemId);
     localStorage.setItem("carrito", JSON.stringify(cartRemove));
@@ -51,7 +56,8 @@ const CartContextProvider = ({ defaultValue = [], children }) => {
       value={{
         cart,
         setCart,
-        methods: { addItem, removeItem, clear, isInCart },
+        favorite,
+        methods: { addItem, removeItem, clear, isInCart, addFavorite },
       }}
     >
       {children}

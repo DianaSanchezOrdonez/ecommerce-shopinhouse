@@ -1,7 +1,7 @@
 import { React } from "react";
 import * as AiIcons from "react-icons/ai";
 
-const ItemCount = ({ stock, setCount, count, handleInput, onAdd }) => {
+const ItemCount = ({ stock, setCount, count, handleInput, onAdd, onAddFavorite }) => {
   
   const addCount = () => {
     if (count < stock) {
@@ -37,9 +37,9 @@ const ItemCount = ({ stock, setCount, count, handleInput, onAdd }) => {
       </div>
 
       <div className="buttons">
-        <button className="btn-favorite"> Agregar a Favoritos</button>
+        <button className="btn-favorite" onClick={() => onAddFavorite()}> Add to Favorites</button>
         <button className="btn-cart" onClick={() => onAdd(count)}>
-          Agregar al Carrito
+          Add to Cart
         </button>
       </div>
     </div>
