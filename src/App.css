@@ -72,8 +72,12 @@ h2 {
   font-size: 1.5rem;
 }
 
-.btn-danger {
+.btn-danger, .btn-primary{
   margin: 1rem 0.5rem 0;
+}
+
+.btn-primary {
+  background-color: var(--color-secondary);
 }
 
 svg{

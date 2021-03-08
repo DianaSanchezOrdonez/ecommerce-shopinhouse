@@ -41,7 +41,7 @@ const ItemSlideContainer = ({}) => {
 
   return (
     <div className="container-slider">
-      <div class="slider-items">
+      <div className="slider-items">
         {products.map((product) => {
           return <SliderProducts product={product} key={product.id} />;
         })}
