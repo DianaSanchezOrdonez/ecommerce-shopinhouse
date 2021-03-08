@@ -6,11 +6,15 @@
   --color-dark: #413e3e;
 }
 
+.container-all {
+  overflow: hidden;
+}
+
 .home {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 80vh;
+  min-height: 83.8vh;
   flex-wrap: wrap;
 }
 

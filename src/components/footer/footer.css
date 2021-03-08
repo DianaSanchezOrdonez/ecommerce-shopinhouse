@@ -1,13 +1,9 @@
 footer {
+    align-self: flex-end;
     width: 100%;
     background-color: var(--color-light);
     color: var(--color-dark);
     padding: 0.5rem 1rem;
-    position: absolute;
-    top: 90vh;
-    bottom: 0;
-   /*  position: absolute;
-    bottom: 0; */
     font-size: 0.8rem;
 }
 
