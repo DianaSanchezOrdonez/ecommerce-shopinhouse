@@ -35,7 +35,7 @@ const ItemListContainer = ({ categoryID }) => {
       if (!categoryID) {
         setProducts(productsData);
         setIsLoading(false);
-      } else {
+      } else  {
         let productByCategory = productsData.filter(
           (product) => product.categoryId === categoryID
         );

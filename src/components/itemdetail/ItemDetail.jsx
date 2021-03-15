@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
+import { Alert } from "react-bootstrap";
 
 import "./itemdetail.css";
 import ItemCount from "../itemcount/ItemCount";
@@ -10,6 +11,7 @@ import { CartContext } from "../../context/CartContext";
 const ItemDetail = ({ item }) => {
   const [count, setCount] = useState(1);
   const [statusButton, setStatusButton] = useState(false);
+  const [show, setShow] = useState(false);
 
   const history = useHistory();
 
@@ -19,7 +21,7 @@ const ItemDetail = ({ item }) => {
     if (value <= item.stock) {
       setCount(value);
     } else {
-      console.log("no se puede!");
+      setShow(true);
     }
   };
 
@@ -30,10 +32,20 @@ const ItemDetail = ({ item }) => {
 
   const onAddFavorite = () => {
     methods.addFavorite({ item: item });
-  }
+  };
 
-  return (
+  return item.categoryId ? (
     <div className="d-flex-row">
+      {
+        show ? <Alert variant="danger" onClose={() => setShow(false)} dismissible>
+                <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
+                <p>
+                  The quantity of items cannot exceed the stock. <br/> 
+                  Change this and that and try again.
+                </p>
+              </Alert>
+              : ""
+      }
       <main className="main-class">
         <div className="slider-img">
           <img src={item.image} />
@@ -70,6 +82,8 @@ const ItemDetail = ({ item }) => {
         </div>
       </aside>
     </div>
+  ) : (
+    <h1>Not Found</h1>
   );
 };
 
