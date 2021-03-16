@@ -17,7 +17,7 @@ const Sidebar = () => {
   const showSidebar = () => setSidebar(!sidebar);
 
   useEffect(() => {
-    document.querySelector(".nav").addEventListener("click", () => {
+    document.querySelector(".nav-header").addEventListener("click", () => {
       setSidebar(false);
     });
     return () => {};
@@ -25,7 +25,7 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className="nav">
+      <div className="nav-header">
         <Link to={"/"} className="nav-icon">
           <FaIcons.FaBars onClick={showSidebar} />
           <div className="logo">

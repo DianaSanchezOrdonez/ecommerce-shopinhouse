@@ -61,9 +61,10 @@ a, a:hover {
 .d-flex-row {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
-/*ESTILOS PERSONALIZADOS DE BOOTSTRAP*/
+/*------------ESTILOS PERSONALIZADOS DE BOOTSTRAP--------------------*/
 .row {
   width: 100%;
 }
@@ -85,7 +86,7 @@ svg{
   margin-right: 0.3rem;
 }
 
-/*Alerts Bootstrap*/
+/*------------Alerts Bootstrap--------------------*/
 .alert {
   width: 50%;
   top: 80px;
@@ -93,6 +94,14 @@ svg{
   right: 0;
 }
 
-.invalid{
-  border-color: #dc3545;
+.nav-tabs .nav-link {
+  width: 50%;
+  text-align: center;
+  color: var(--color-dark);
 }
+
+form {
+  margin-top: 1rem;
+  color: var(--color-dark);
+}
+

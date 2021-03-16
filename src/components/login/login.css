@@ -1,0 +1,23 @@
+.btn-register-social {
+    width: 49%;
+    background-color: var(--color-secondary);
+    margin: 5px 5px 5px 0;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: .25rem;
+    color: var(--color-white);
+    cursor: pointer;
+}
+
+.btn-submit {
+    width: 99%;
+    margin: 10px 0 0 0;
+    background-color: var(--color-primary);
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: .25rem;
+    color: var(--color-white);
+    cursor: pointer;
+}

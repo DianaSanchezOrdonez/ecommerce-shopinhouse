@@ -7,6 +7,7 @@ import Favorite from "./pages/favorite/Favorite";
 import Detail from "./pages/detail/Detail";
 import Cart from "./pages/cart/Cart";
 import NotFound from "./pages/notfound/NotFound";
+import Login from "./components/login/Login"
 import Footer from "./components/footer/Footer"
 
 import CartContextProvider from "./context/CartContext";
@@ -32,6 +33,7 @@ const App = () => {
             <Route path="/favorite" exact component={Favorite}></Route>
             <Route path="/item/:itemID" exact component={Detail}></Route>
             <Route path="/cart" exact component={Cart}></Route>
+            <Route path="/login" exact component={Login}></Route>
             <Route path="*" component={NotFound}></Route>
           </Switch>
         </CartContextProvider>
