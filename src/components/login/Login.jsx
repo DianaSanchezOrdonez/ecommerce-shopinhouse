@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { Modal, Button, Tabs, Tab, Form } from "react-bootstrap";
 import { FaFacebookF } from "react-icons/fa";
-import {AiOutlineGoogle} from "react-icons/ai"
+import {AiOutlineGoogle} from "react-icons/ai";
 
 import './login.css';
 
@@ -13,7 +13,7 @@ const Login = () => {
   const handleClose = () => setShow(false);
 
   return (
-    <Modal  show={show} onHide={handleClose}>
+    <Modal  /* show={show} */ onHide={handleClose} >
       <Modal.Header closeButton>
       </Modal.Header>
 

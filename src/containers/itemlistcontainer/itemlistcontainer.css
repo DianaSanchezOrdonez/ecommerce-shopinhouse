@@ -71,7 +71,7 @@
 .buttons {
     width: 100%;
 }
-.buttons button {
+.buttons button, .btn-login-sidebar {
     width: 100%;
     margin: 5px 0;
     padding: 10px;
@@ -80,14 +80,20 @@
     border-radius: 50px;
     color:var(--color-white);
     line-height: 1.2rem;
+    font-weight: 500;
     cursor: pointer;
+}
+
+.btn-login-sidebar {
+    min-width: 100px;
+    margin-right: 1rem;
 }
 
 .btn-cart {
     background-color: var(--color-primary);
 }
 
-.btn-favorite {
+.btn-favorite, .btn-login-sidebar {
     background-color: var(--color-secondary);
 }
 

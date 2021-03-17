@@ -94,10 +94,18 @@ svg{
   right: 0;
 }
 
+.modal-content {
+  margin-top: 80px;
+}
+
 .nav-tabs .nav-link {
   width: 50%;
   text-align: center;
-  color: var(--color-dark);
+}
+
+.nav-link.active {
+  font-weight: 500;
+  color: var(--color-primary);
 }
 
 form {
