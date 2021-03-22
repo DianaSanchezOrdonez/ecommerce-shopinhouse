@@ -7,6 +7,7 @@ import ItemCount from "../itemcount/ItemCount";
 
 /**Contexto */
 import { CartContext } from "../../context/CartContext";
+import {FavoriteContext} from "../../context/FavoriteContext";
 
 const ItemDetail = ({ item }) => {
   const [count, setCount] = useState(1);
@@ -15,7 +16,8 @@ const ItemDetail = ({ item }) => {
 
   const history = useHistory();
 
-  const { methods, cart, setCart, favorite } = useContext(CartContext);
+  const { methods, cart, setCart } = useContext(CartContext);
+  const { methodsFavorite, arrayFavorite, setArrayFavorite } = useContext(FavoriteContext);
 
   const handleInput = (name, value) => {
     if (value <= item.stock) {
@@ -31,14 +33,14 @@ const ItemDetail = ({ item }) => {
   };
 
   const onAddFavorite = () => {
-    methods.addFavorite({ item: item });
+    methodsFavorite.addItemFavorite({ item: item });
   };
 
   return item.categoryId ? (
     <div className="d-flex-row">
       {
         show ? <Alert variant="danger" onClose={() => setShow(false)} dismissible>
-                <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
+                <Alert.Heading>Take care!</Alert.Heading>
                 <p>
                   The quantity of items cannot exceed the stock. <br/> 
                   Change this and that and try again.

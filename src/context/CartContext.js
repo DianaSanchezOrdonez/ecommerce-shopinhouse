@@ -33,10 +33,6 @@ const CartContextProvider = ({ defaultValue = [], children }) => {
     }
   };
 
-  const addFavorite = (item) => {
-    setFavorite([...favorite, item]);
-  }
-
   const removeItem = (itemId) => {
     const cartRemove = cart.filter((product) => product.item.id !== itemId);
     localStorage.setItem("carrito", JSON.stringify(cartRemove));
@@ -58,7 +54,7 @@ const CartContextProvider = ({ defaultValue = [], children }) => {
         cart,
         setCart,
         favorite,
-        methods: { addItem, removeItem, clear, isInCart, addFavorite },
+        methods: { addItem, removeItem, clear, isInCart },
       }}
     >
       {children}

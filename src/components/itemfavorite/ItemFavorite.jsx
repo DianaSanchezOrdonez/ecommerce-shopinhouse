@@ -1,15 +1,27 @@
 import React, { useContext } from "react";
-import { CartContext } from "../../context/CartContext";
-import ItemList from '../../components/itemlist/ItemList';
+import {Link} from "react-router-dom";
+import {AiOutlineDelete} from "react-icons/ai";
 
-const ItemFavorite = () => {
-  const CartContextUse = useContext(CartContext);
+import {FavoriteContext} from "../../context/FavoriteContext";
 
-  console.log("CartContextUse", CartContextUse);
+import "./itemfavorite.css";
 
-  return CartContextUse.favorite.map((el) => {
-    return <ItemList product={el.item}/>
-  });
+const ItemFavorite = ({product}) => {
+
+  const { methodsFavorite, arrayFavorite, setArrayFavorite } = useContext(FavoriteContext);
+  
+  return (
+    <div className="card d-flex-column">
+      <Link /* to={`/item/${product.id}`} */>
+        <div className="card-body d-flex-column">
+          <button className="btn-delete-favorite" onClick={() => methodsFavorite.removeItemFavorite(product.item.id)}><AiOutlineDelete/></button>
+          <img src={product.item.image} alt="" />
+          <span className="span-name">{product.item.title}</span>
+          <span className="span-price">$. {product.item.price}</span>
+        </div>
+      </Link>
+    </div>
+  )
 };
 
 export default ItemFavorite;

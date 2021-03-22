@@ -1,0 +1,15 @@
+.btn-delete-favorite {
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    outline: none;
+    padding: .5rem;
+    color: var(--color-white);
+    background-color: #dc3545;
+}
+
+.btn-delete-favorite svg {
+    margin: auto;
+}

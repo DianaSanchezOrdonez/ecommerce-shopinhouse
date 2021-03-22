@@ -11,12 +11,14 @@ import Login from "./components/login/Login"
 import Footer from "./components/footer/Footer"
 
 import CartContextProvider from "./context/CartContext";
+import FavoriteContextProvider from "./context/FavoriteContext";
 
 const App = () => {
   return (
     <>
       <BrowserRouter>
         <CartContextProvider>
+        <FavoriteContextProvider>
           <Sidebar />
           {/* <nav>
             <NavLink to={'/'} activeClassName='select-link'>Ir a home</NavLink>
@@ -36,6 +38,7 @@ const App = () => {
             <Route path="/login" exact component={Login}></Route>
             <Route path="*" component={NotFound}></Route>
           </Switch>
+        </FavoriteContextProvider>
         </CartContextProvider>
       </BrowserRouter>
     </>

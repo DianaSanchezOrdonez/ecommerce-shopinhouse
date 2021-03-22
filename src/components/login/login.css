@@ -1,12 +1,12 @@
 .btn-register-social {
     width: 49%;
-    background-color: var(--color-secondary);
+    background-color: var(--color-light);
     margin: 5px 5px 5px 0;
     padding: 10px;
     border: none;
     outline: none;
     border-radius: .25rem;
-    color: var(--color-white);
+    color: var(--color-dark);
     cursor: pointer;
 }
 

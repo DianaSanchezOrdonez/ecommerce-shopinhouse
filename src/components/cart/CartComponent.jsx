@@ -3,7 +3,8 @@ import { CartContext } from "../../context/CartContext";
 
 import "./cart.css";
 import { Button, Modal, Form } from "react-bootstrap";
-import * as IconName from "react-icons/io5";
+import {AiOutlineDelete} from "react-icons/ai";
+import {IoBagCheckOutline} from "react-icons/io5";
 import Loader from "../../components/loader/Loader";
 
 import { getFirestore } from "../../firebase/index";
@@ -93,10 +94,11 @@ const CartComponent = () => {
     <>
       <div className="row justify-content-end">
         <Button variant="danger" onClick={() => CartContextUse.methods.clear()}>
-          <IconName.IoTrashBinOutline />
+          <AiOutlineDelete />
           Empty Cart
         </Button>
         <Button variant="primary" onClick={handleShow}>
+          <IoBagCheckOutline/>
           Checkout
         </Button>
       </div>
