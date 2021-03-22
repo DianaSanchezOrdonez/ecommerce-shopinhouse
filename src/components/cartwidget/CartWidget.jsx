@@ -36,7 +36,7 @@ export const CartWidget = memo(
           {CartContextUse.cart.map((product) => {
             return (
               <li className="d-flex-row" key={product.item.id}>
-                <img src={product.item.image} />
+                <img src={product.item.image} alt={product.item.title} />
                 <span className="widget-description">{product.item.title}</span>
                 <span>{product.quantity}</span>
               </li>

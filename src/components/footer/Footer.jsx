@@ -11,8 +11,8 @@ const Footer = () => {
                <span>Diana Sánchez Ordoñez</span>
             </div>
             <div className="social-media">
-                <a href="http://github.com/DianaSanchezOrdonez" target="_blank"><AiIcons.AiOutlineGithub /></a>
-                <a href="https://www.linkedin.com/in/diana-isabel-sanchez-ordonez/" target="_blank"><AiIcons.AiOutlineLinkedin /></a>
+                <a href="http://github.com/DianaSanchezOrdonez" target="_blank"  rel="noreferrer"><AiIcons.AiOutlineGithub /></a>
+                <a href="https://www.linkedin.com/in/diana-isabel-sanchez-ordonez/" target="_blank"  rel="noreferrer"><AiIcons.AiOutlineLinkedin /></a>
             </div> 
         </footer>
     )

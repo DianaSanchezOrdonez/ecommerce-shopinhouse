@@ -16,8 +16,8 @@ const ItemDetail = ({ item }) => {
 
   const history = useHistory();
 
-  const { methods, cart, setCart } = useContext(CartContext);
-  const { methodsFavorite, arrayFavorite, setArrayFavorite } = useContext(FavoriteContext);
+  const { methods } = useContext(CartContext);
+  const { methodsFavorite } = useContext(FavoriteContext);
 
   const handleInput = (name, value) => {
     if (value <= item.stock) {
@@ -50,7 +50,7 @@ const ItemDetail = ({ item }) => {
       }
       <main className="main-class">
         <div className="slider-img">
-          <img src={item.image} />
+          <img src={item.image} alt={item.description} />
         </div>
       </main>
       <aside className="aside-class">

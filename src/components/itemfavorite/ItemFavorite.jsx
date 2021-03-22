@@ -8,7 +8,7 @@ import "./itemfavorite.css";
 
 const ItemFavorite = ({product}) => {
 
-  const { methodsFavorite, arrayFavorite, setArrayFavorite } = useContext(FavoriteContext);
+  const { methodsFavorite } = useContext(FavoriteContext);
   
   return (
     <div className="card d-flex-column">

@@ -21,7 +21,7 @@ const ItemDetailContainer = () => {
     })
 
     return () => {  }
-  }, [])
+  }, [itemID])
 
   if(loading){
     return <Loader/>;
