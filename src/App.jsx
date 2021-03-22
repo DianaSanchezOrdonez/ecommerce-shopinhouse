@@ -8,7 +8,6 @@ import Detail from "./pages/detail/Detail";
 import Cart from "./pages/cart/Cart";
 import NotFound from "./pages/notfound/NotFound";
 import Login from "./components/login/Login"
-import Footer from "./components/footer/Footer"
 
 import CartContextProvider from "./context/CartContext";
 import FavoriteContextProvider from "./context/FavoriteContext";

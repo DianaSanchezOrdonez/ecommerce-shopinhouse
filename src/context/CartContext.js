@@ -3,9 +3,7 @@ import React, { createContext, useState, useEffect } from "react";
 export const CartContext = createContext();
 
 const CartContextProvider = ({ defaultValue = [], children }) => {
-  const [allProducts, setAllProducts ] = useState([])
   const [cart, setCart] = useState([]);
-  const [favorite, setFavorite] = useState([]);
 
   useEffect(() => {
     if (localStorage.getItem("carrito") !== null) {
@@ -53,7 +51,6 @@ const CartContextProvider = ({ defaultValue = [], children }) => {
       value={{
         cart,
         setCart,
-        favorite,
         methods: { addItem, removeItem, clear, isInCart },
       }}
     >

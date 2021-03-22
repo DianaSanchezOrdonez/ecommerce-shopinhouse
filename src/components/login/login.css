@@ -21,3 +21,15 @@
     color: var(--color-white);
     cursor: pointer;
 }
+
+.error-label {
+    border: 2px solid var(--color-red);
+    color: var(--color-red);
+}
+
+.error-feed {
+    font-size: 0.8rem;
+    margin-left: .3rem;
+    color: var(--color-red);
+    font-family: Siro-SemiBold;
+}

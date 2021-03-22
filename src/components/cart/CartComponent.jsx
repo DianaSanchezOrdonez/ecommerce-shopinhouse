@@ -5,7 +5,6 @@ import "./cart.css";
 import { Button, Modal, Form } from "react-bootstrap";
 import {AiOutlineDelete} from "react-icons/ai";
 import {IoBagCheckOutline} from "react-icons/io5";
-import Loader from "../../components/loader/Loader";
 
 import { getFirestore } from "../../firebase/index";
 

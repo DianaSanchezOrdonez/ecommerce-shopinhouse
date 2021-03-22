@@ -19,3 +19,11 @@ export const getFirebase = () => {
 export const getFirestore = () => {
     return firebase.firestore(app);
 }
+
+export const createUserPassword = (email, password) => {
+  firebase.auth(app).createUserWithEmailAndPassword(email, password)
+  .then((user) => {
+    console.log('user', user)
+  })
+  .catch((error) => console.log('error', error));
+}

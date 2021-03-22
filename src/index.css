@@ -8,3 +8,8 @@ body {
   font-family: 'Siro-Regular';
   src: local('Siro-Regular'), url(./assets/fonts/Siro-Regular.ttf) format('truetype');
 }
+
+@font-face {
+  font-family: 'Siro-SemiBold';
+  src: local('Siro-SemiBold'), url(./assets/fonts/Siro-SemiBold.ttf) format('truetype');
+}

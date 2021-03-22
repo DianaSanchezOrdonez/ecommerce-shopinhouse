@@ -14,9 +14,5 @@ Una plataforma web de e-commerce que busca favorecer a aquellos pequeños negoci
 * Servicios de Firebase: Cloud firestore, Firebase Authentification
 * API Mercado Pago
 
-## Prototipo
 
-Antes de la implementación se realizó un prototipo en Figma. 
-
-[Prototipo](https://www.figma.com/file/OPWkKR8oqf0LR2yeockm5d/Untitled?node-id=0%3A1)
 
