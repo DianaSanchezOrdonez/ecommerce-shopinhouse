@@ -9,6 +9,7 @@ import Cart from "./pages/cart/Cart";
 import NotFound from "./pages/notfound/NotFound";
 import Login from "./components/login/Login"
 
+import AuthContextProvider from "./context/AuthContext";
 import CartContextProvider from "./context/CartContext";
 import FavoriteContextProvider from "./context/FavoriteContext";
 
@@ -16,6 +17,7 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
+        <AuthContextProvider>
         <CartContextProvider>
         <FavoriteContextProvider>
           <Sidebar />
@@ -39,6 +41,7 @@ const App = () => {
           </Switch>
         </FavoriteContextProvider>
         </CartContextProvider>
+        </AuthContextProvider>
       </BrowserRouter>
     </>
   );

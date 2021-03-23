@@ -52,3 +52,9 @@
 .logo img{
     width: 150px;
 }
+
+.container-btns {
+    height: 90vh;
+    width: 200px;
+    margin: auto
+}

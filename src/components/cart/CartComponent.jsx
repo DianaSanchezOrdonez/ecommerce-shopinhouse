@@ -1,12 +1,13 @@
 import React, { useContext, useState } from "react";
 import { CartContext } from "../../context/CartContext";
 
-import "./cart.css";
 import { Button, Modal, Form } from "react-bootstrap";
 import {AiOutlineDelete} from "react-icons/ai";
 import {IoBagCheckOutline} from "react-icons/io5";
 
 import { getFirestore } from "../../firebase/index";
+
+import "./cart.css";
 
 const CartComponent = () => {
   const CartContextUse = useContext(CartContext);
@@ -103,7 +104,7 @@ const CartComponent = () => {
       </div>
 
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
+        <Modal.Header>
           <Modal.Title>
             Buyer {docRef ? "Id Checkout " + docRef : null}
           </Modal.Title>

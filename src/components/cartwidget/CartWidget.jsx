@@ -3,8 +3,6 @@ import { useHistory } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
 import {AiOutlineShoppingCart} from "react-icons/ai";
 
-import Login from "../../components/login/Login";
-
 import "./cartwidget.css";
 
 export const CartWidget = memo(
@@ -12,16 +10,10 @@ export const CartWidget = memo(
     const CartContextUse = useContext(CartContext);
     const [hide, setHide] = useState(true);
     const history = useHistory();
-    const [show, setShow] = useState(false);
-
-    const handleShow = () => setShow(true);
 
     return (
       <div className="d-flex-row">
-        <button className="btn-login-sidebar" onClick={handleShow}>
-          Login
-        </button>
-        <Login show={show} setShow={setShow}/>
+      
         <button
           className={CartContextUse.cart.length ? "nav-icon" : "hide-list"}
           onClick={() => history.push("/cart")}

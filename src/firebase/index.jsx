@@ -1,4 +1,5 @@
 import firebase from 'firebase/app';
+import 'firebase/auth';
 import '@firebase/firestore';
 
 // Your web app's Firebase configuration and Initialize Firebase
@@ -20,10 +21,7 @@ export const getFirestore = () => {
     return firebase.firestore(app);
 }
 
-export const createUserPassword = (email, password) => {
-  firebase.auth(app).createUserWithEmailAndPassword(email, password)
-  .then((user) => {
-    console.log('user', user)
-  })
-  .catch((error) => console.log('error', error));
-}
+export const auth = firebase.auth();
+export const provider = new firebase.auth.GoogleAuthProvider();
+
+

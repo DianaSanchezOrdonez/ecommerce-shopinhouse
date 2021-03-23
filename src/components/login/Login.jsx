@@ -1,16 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
-import { Modal, Button, Tabs, Tab, Form } from "react-bootstrap";
+import { Modal, Tabs, Tab, Form } from "react-bootstrap";
 import { FaFacebookF } from "react-icons/fa";
 import { AiOutlineGoogle } from "react-icons/ai";
 
 import validateInfo from "../../utils/validateInfo.js";
-/*----------------AUTHENTICATION SERVICE-------------------*/
-import { createUserPassword } from "../../firebase/index";
+
+import { AuthContext } from "../../context/AuthContext";
 
 import "./login.css";
 
 const Login = ({show, setShow}) => {
+  const AuthContextUse= useContext(AuthContext);
   const [key, setKey] = useState("login");
   const [values, setValues] = useState({
     usernameLogin: '',
@@ -25,8 +26,6 @@ const Login = ({show, setShow}) => {
 
   const handleClose = () => setShow(false);
 
-  /* createUserPassword(); */
-
   const handleChange = (event) => {
     const { id, value } = event.target
     setValues({
@@ -38,13 +37,12 @@ const Login = ({show, setShow}) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     setErrors(validateInfo(values))
+    AuthContextUse.methodsAuth.createEmailPassword(values.emailLogin, values.passwordLogin);
   }
 
   return (
     <Modal show={show} onHide={handleClose}>
-      <Modal.Header closeButton></Modal.Header>
-
-      <Modal.Body closeButton>
+      <Modal.Body>
         <Tabs
           id="controlled-tab-example"
           activeKey={key}
@@ -66,6 +64,15 @@ const Login = ({show, setShow}) => {
                 <Form.Control type="password" placeholder="Password" className={errors.passwordLogin ? "error-label" : ""}/>
                  {errors.passwordLogin && <span className="error-feed">{errors.passwordLogin}</span>}
               </Form.Group>
+              <span className="d-block text-center">or</span>
+              <div className="d-flex-row justify-content-between">
+                <button className="btn-register-social">
+                  <FaFacebookF /> Login with Facebook
+                </button>
+                <button className="btn-register-social" onClick={() => AuthContextUse.methodsAuth.signInWithGoogle()}>
+                  <AiOutlineGoogle /> Login with Google
+                </button>
+              </div>
 
               <button
                 className="row justify-content-center btn-submit"
@@ -100,15 +107,7 @@ const Login = ({show, setShow}) => {
                 />
                 {errors.password2 && <span className="error-feed">{errors.password2}</span>}
               </Form.Group>
-              <span className="d-block text-center">or</span>
-              <div className="d-flex-row justify-content-between">
-                <button className="btn-register-social">
-                  <FaFacebookF /> Register with Facebook
-                </button>
-                <button className="btn-register-social">
-                  <AiOutlineGoogle /> Register with Google
-                </button>
-              </div>
+              
               <button
                 className="row justify-content-center btn-submit"
                 type="submit"
