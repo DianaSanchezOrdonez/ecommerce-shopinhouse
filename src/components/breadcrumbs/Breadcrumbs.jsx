@@ -1,7 +1,7 @@
 import {Breadcrumb} from "react-bootstrap";
 
 const Breadcrumbs = ({optionsMenu}) => {
-    console.log('optionsMenu', optionsMenu)
+  
     return(
         <Breadcrumb>
             <Breadcrumb.Item href="/">Home</Breadcrumb.Item>

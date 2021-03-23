@@ -5,10 +5,10 @@ import ItemFavoriteContainer from "../../containers/itemfavoritecontainer/ItemFa
 
 const Favoritos = () => {
   return (
-    <section className="home">
+    <>
       <Breadcrumbs optionsMenu={[{name:"Favorite", status:true, url:"/favorite"}]}/>
       <ItemFavoriteContainer />
-    </section>
+    </>
   )
 };
 

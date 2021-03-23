@@ -4,6 +4,7 @@ import { Alert } from "react-bootstrap";
 
 import "./itemdetail.css";
 import ItemCount from "../itemcount/ItemCount";
+import Opinions from "../opinions/Opinions";
 
 /**Contexto */
 import { CartContext } from "../../context/CartContext";
@@ -13,6 +14,7 @@ const ItemDetail = ({ item }) => {
   const [count, setCount] = useState(1);
   const [statusButton, setStatusButton] = useState(false);
   const [show, setShow] = useState(false);
+  const [showFavorite, setShowFavorite] = useState(false);
 
   const history = useHistory();
 
@@ -34,9 +36,11 @@ const ItemDetail = ({ item }) => {
 
   const onAddFavorite = () => {
     methodsFavorite.addItemFavorite({ item: item });
+    setShowFavorite(true)
   };
 
   return item.categoryId ? (
+    <>
     <div className="d-flex-row">
       {
         show ? <Alert variant="danger" onClose={() => setShow(false)} dismissible>
@@ -46,6 +50,14 @@ const ItemDetail = ({ item }) => {
                   Change this and that and try again.
                 </p>
               </Alert>
+              : ""
+      }
+      {
+        showFavorite ? <Alert onClose={() => setShowFavorite(false)} variant="success" dismissible>
+                Added to{' '}
+                <Alert.Link href="/favorite">Favorites</Alert.Link>. Give it a click if you
+                like.
+               </Alert>
               : ""
       }
       <main className="main-class">
@@ -84,6 +96,8 @@ const ItemDetail = ({ item }) => {
         </div>
       </aside>
     </div>
+    <Opinions/>
+    </>
   ) : (
     <h1>Not Found</h1>
   );
