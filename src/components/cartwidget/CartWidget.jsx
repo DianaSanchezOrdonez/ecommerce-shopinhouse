@@ -1,21 +1,30 @@
-import React, { useContext, memo, useState } from "react";
+import React, { useContext, memo, useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+
 import { CartContext } from "../../context/CartContext";
-import {AiOutlineShoppingCart} from "react-icons/ai";
+import { AuthContext } from "../../context/AuthContext";
 
 import "./cartwidget.css";
 
 export const CartWidget = memo(
   () => {
     const CartContextUse = useContext(CartContext);
+    const { dataUser } = useContext(AuthContext);
+    const [username, setUsername] = useState("");
     const [hide, setHide] = useState(true);
     const history = useHistory();
 
+    useEffect(() => {
+      if (dataUser) {
+        setUsername(dataUser.username);
+      }
+    }, [dataUser]);
+
     return (
       <div className="d-flex-row">
+        <span className="span-username">{dataUser ? `Hola, ${username}` : " "}</span>
 
-        <span className="span-username">Hola, Diana</span>
-      
         <button
           className={CartContextUse.cart.length ? "nav-icon" : "hide-list"}
           onClick={() => history.push("/cart")}

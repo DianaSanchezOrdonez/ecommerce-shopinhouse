@@ -1,12 +1,13 @@
 import React, { createContext, useState, useEffect } from "react";
 
 /*-------------------AUTHENTICATION FIREBASE----------------------------*/
-import { auth, provider } from "../firebase/index";
+import { auth, provider, getFirestore } from "../firebase/index";
 
 export const AuthContext = createContext();
 
 const AuthContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState();
+  const [dataUser, setDataUser] = useState()
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(user => {
@@ -14,9 +15,7 @@ const AuthContextProvider = ({ children }) => {
     })
 
     return unsubscribe
-  }, [])
-
-  console.log('currentUser', currentUser)
+  }, []) 
 
   const createEmailPassword = (email, password) => {
     console.log("email", email);
@@ -61,9 +60,28 @@ const AuthContextProvider = ({ children }) => {
       .catch((error) => console.log("error", error));
   };
 
+  if(currentUser) {
+    getFirestore()
+    .collection("Users")
+    .where("id", "==", currentUser.uid)
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        return setDataUser({username: doc.data().username, email: doc.data().email})
+      });
+    })
+    .catch((error) => {
+      console.log("Error getting documents: ", error);
+    });
+  }else{
+    console.log('loguearse....')
+  }
+
   return(
       <AuthContext.Provider
         value={{
+            dataUser,
+            currentUser,
             methodsAuth: {createEmailPassword, signInEmailPassword, signOut, signInWithGoogle}
         }}
       >

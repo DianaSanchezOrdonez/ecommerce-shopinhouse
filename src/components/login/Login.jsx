@@ -5,6 +5,7 @@ import { FaFacebookF } from "react-icons/fa";
 import { AiOutlineGoogle } from "react-icons/ai";
 
 import validateInfo from "../../utils/validateInfo.js";
+import { getFirestore } from "../../firebase/index";
 
 import { AuthContext } from "../../context/AuthContext";
 
@@ -22,7 +23,7 @@ const Login = ({show, setShow}) => {
     password: '',
     password2: ''
   })
-  const [errors, setErrors] = useState({})
+  const [errors, setErrors] = useState({});
 
   const handleClose = () => setShow(false);
 
@@ -34,10 +35,39 @@ const Login = ({show, setShow}) => {
     })
   };
 
-  const handleSubmit = (event) => {
+  const registerForm = (event) => {
     event.preventDefault();
-    setErrors(validateInfo(values))
-    AuthContextUse.methodsAuth.createEmailPassword(values.emailLogin, values.passwordLogin);
+    setErrors(validateInfo(values));
+    console.log('errors', Object.values(errors))
+    if(errors){
+      AuthContextUse.methodsAuth.createEmailPassword(values.email, values.password); 
+      const db = getFirestore();
+      db.collection("Users").add({
+          id: AuthContextUse.currentUser.uid,
+          username: values.username,
+          email : values.email,
+          password : values.password
+      })
+      .then((docRef) => {
+          console.log("User written with ID: ", docRef.id);
+      })
+      .catch((error) => {
+          console.error("Error adding User: ", error);
+      });
+    
+    }else{
+      console.log('You couldn register')
+    }
+  }
+
+  const loginForm = (event) => {
+    event.preventDefault();
+    setErrors(validateInfo(values));
+    if(errors){
+      AuthContextUse.methodsAuth.signInEmailPassword(values.emailLogin, values.passwordLogin); 
+    }else{
+      console.log('You couldn register')
+    }
   }
 
   return (
@@ -49,7 +79,7 @@ const Login = ({show, setShow}) => {
           onSelect={(k) => setKey(k)}
         >
           <Tab eventKey="login" title="Login">
-            <Form onSubmit={(e) => handleSubmit(e)}>
+            <Form onSubmit={(e) => loginForm(e)}>
               <Form.Group controlId="usernameLogin" onChange={(e) => handleChange(e)} >
                 <Form.Control type="text" placeholder="Username" className={errors.usernameLogin ? "error-label" : ""}/>
                  {errors.usernameLogin && <span className="error-feed">{errors.usernameLogin}</span>}
@@ -83,7 +113,7 @@ const Login = ({show, setShow}) => {
             </Form>
           </Tab>
           <Tab eventKey="register" title="Register">
-            <Form onSubmit={(e) => handleSubmit(e)}>
+            <Form onSubmit={(e) => registerForm(e)}>
               <Form.Group controlId="username" onChange={(e) => handleChange(e)}>
                 <Form.Control type="text" placeholder="Username" className={errors.username ? "error-label" : ""} />
                 {errors.username && <span className="error-feed">{errors.username}</span>}

@@ -1,9 +1,29 @@
 import React, { createContext, useState, useEffect } from "react";
 
+import {getFirestore} from "../firebase/index";
+
 export const CartContext = createContext();
 
 const CartContextProvider = ({ defaultValue = [], children }) => {
+  const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
+
+  useEffect(() => {
+    /*Conexión con la bd*/
+    const db = getFirestore();
+
+    /*Guardamos la referencia de la colección que queremos tomar*/
+    const productsCollection = db.collection("Products");
+
+    /*Tomamos los datos */
+    productsCollection.get().then((value) => {
+      /* value.docs.map(product => console.log({...product.data(), id:product.id}))  */
+      let productsData = value.docs.map((product) => {
+        return { ...product.data(), id: product.id };
+      });
+      setProducts(productsData)
+    });
+  }, []);
 
   useEffect(() => {
     if (localStorage.getItem("carrito") !== null) {
@@ -46,11 +66,18 @@ const CartContextProvider = ({ defaultValue = [], children }) => {
     return cart.findIndex((prod) => prod.item.id === id);
   };
 
+  const finalTotal = cart.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue.quantity * currentValue.item.price;
+  }, 0);
+
+
   return (
     <CartContext.Provider
       value={{
+        products,
         cart,
         setCart,
+        finalTotal,
         methods: { addItem, removeItem, clear, isInCart },
       }}
     >
