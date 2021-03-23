@@ -1,9 +1,16 @@
- const Breadcrumbs = () => {
+import {Breadcrumb} from "react-bootstrap";
+
+const Breadcrumbs = ({optionsMenu}) => {
+    console.log('optionsMenu', optionsMenu)
     return(
-       <ul className='breadcrumb'>
-           <li><a href="">Home</a></li> /
-           <li><a href="">Category</a></li>
-       </ul>
+        <Breadcrumb>
+            <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+            {
+                optionsMenu.map((option) => {
+                    return <Breadcrumb.Item href={option.url} className={option.status ? "option-active" : ""}>{option.name}</Breadcrumb.Item>
+                })
+            }
+        </Breadcrumb>
     )
 }
 export default Breadcrumbs

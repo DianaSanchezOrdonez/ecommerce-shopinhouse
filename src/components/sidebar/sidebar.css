@@ -58,3 +58,8 @@
     width: 200px;
     margin: auto
 }
+
+.option-active a{
+    color: var(--color-primary);
+    font-family: Siro-SemiBold;
+}

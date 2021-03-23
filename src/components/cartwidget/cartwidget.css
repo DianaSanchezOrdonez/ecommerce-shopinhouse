@@ -46,3 +46,8 @@
 .hide-list {
   display: none;
 }
+
+.span-username {
+  color: var(--color-light);
+  font-family: Siro-SemiBold;
+}

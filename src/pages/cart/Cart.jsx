@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 
 import CartComponent from "../../components/cart/CartComponent";
+import Breadcrumbs from "../../components/breadcrumbs/Breadcrumbs";
 import { CartContext } from "../../context/CartContext";
 
 const Cart = () => {
@@ -9,7 +10,10 @@ const Cart = () => {
   const history = useHistory();
 
   return CartContextUse.cart.length ? (
-    <CartComponent />
+    <>
+      <Breadcrumbs optionsMenu={[{name:"Cart", status:true, url:"/cart"}]}/>
+      <CartComponent />
+    </>
   ) : (
     <div className="home d-flex-column">
       <span>No hay items</span>

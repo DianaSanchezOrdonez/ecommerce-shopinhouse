@@ -13,6 +13,8 @@ export const CartWidget = memo(
 
     return (
       <div className="d-flex-row">
+
+        <span className="span-username">Hola, Diana</span>
       
         <button
           className={CartContextUse.cart.length ? "nav-icon" : "hide-list"}
