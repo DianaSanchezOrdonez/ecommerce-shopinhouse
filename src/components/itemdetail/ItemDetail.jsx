@@ -96,7 +96,7 @@ const ItemDetail = ({ item }) => {
         </div>
       </aside>
     </div>
-    <Opinions/>
+    {/* <Opinions/> */}
     </>
   ) : (
     <h1>Not Found</h1>

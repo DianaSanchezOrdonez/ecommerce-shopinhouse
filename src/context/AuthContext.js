@@ -22,7 +22,7 @@ const AuthContextProvider = ({ children }) => {
     return auth
       .createUserWithEmailAndPassword(email, password)
       .then((user) => {
-        console.log("user", user);
+        return user
       })
       .catch((error) => console.log("error", error));
   };
@@ -32,7 +32,7 @@ const AuthContextProvider = ({ children }) => {
     return auth
       .signInWithEmailAndPassword(email, password)
       .then((user) => {
-        console.log("user", user);
+        return user
       })
       .catch((error) => console.log("error", error));
   };
@@ -71,7 +71,6 @@ const AuthContextProvider = ({ children }) => {
         console.error("Error adding User: ", error);
     });
   }
-
 
   if(currentUser) {
     getFirestore()

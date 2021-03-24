@@ -1,9 +1,14 @@
 .resume-items {
-    padding: 0.5rem;
-    border: 1px solid var(--color-light);
-    height: 200px;
+    height: 180px;
     overflow: auto;
     border-radius: .25rem;
+}
+
+.card-item {
+    width: 100%;
+    border:1px solid var(--color-light);
+    padding: .5rem;
+    margin: .5rem auto ;
 }
 
 .resume-item-title, .resume-item-price {
@@ -13,5 +18,9 @@
 
 .resume-item-title {
     width: 80%;
-    margin-left: 1rem;
+}
+
+.img-sucess {
+    width: 300px;
+    margin-bottom: 1rem;
 }

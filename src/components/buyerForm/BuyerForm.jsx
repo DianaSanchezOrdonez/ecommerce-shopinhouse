@@ -5,6 +5,8 @@ import { getFirestore } from "../../firebase/index";
 import { AuthContext } from "../../context/AuthContext";
 import { CartContext } from "../../context/CartContext";
 
+import BuyerResponse from "./BuyerResponse";
+
 import "./buyerform.css"
 
 const BuyerForm = ({ show, setShow }) => {
@@ -12,6 +14,7 @@ const BuyerForm = ({ show, setShow }) => {
   const { dataUser } = useContext(AuthContext);
   const { cart, finalTotal } = useContext(CartContext);
   const [ docRef, setDocRef] = useState();
+  const [ isSubmited, setIsSubmited] = useState(false);
 
   const db = getFirestore();
 
@@ -31,7 +34,7 @@ const BuyerForm = ({ show, setShow }) => {
                 }
             ]
         }' */
-      const jsonCart = cart.map((el) => {
+      let formatJson = cart.map((el) => {
           return {
             title: el.item.title,
             description: el.item.title,
@@ -40,6 +43,7 @@ const BuyerForm = ({ show, setShow }) => {
             unit_price: el.item.price
           } 
         })
+        
     /* fetch('https://api.mercadopago.com/checkout/preferences', {
         method: 'POST', 
         headers: {
@@ -62,7 +66,7 @@ const BuyerForm = ({ show, setShow }) => {
     })
     .then(result => result.json())
     .then(values => console.log('values', values.init_point)) */
-    console.log('items', jsonCart)
+    
   }, [])
 
   const fetchWithApi = () => {
@@ -102,15 +106,18 @@ const BuyerForm = ({ show, setShow }) => {
       console.error("Error adding document: ", error);
     });
     
+    setIsSubmited(true);
+    setShow(false);
     //Reducir el stock en mi bd
   }; 
 
   return (
+    <>
+    { isSubmited ? <BuyerResponse  isSubmited={isSubmited} setIsSubmited={setIsSubmited} docRef={docRef}/> : ""}
     <Modal show={show} onHide={handleClose}>
       <Modal.Header>
         <Modal.Title>
           Buyer
-          {/* Buyer {docRef ? "Id Checkout " + docRef : null} */}
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
@@ -131,7 +138,7 @@ const BuyerForm = ({ show, setShow }) => {
           </Form.Group>
           <div className="resume-items">
             {cart.map((product) => {
-              return <div className="row justify-content-around">
+              return <div className="card-item row justify-content-around">
                   <span className="resume-item-title">{product.item.title}</span>
                   <span className="resume-item-price">$. {product.item.price}</span>
                 </div>
@@ -144,9 +151,10 @@ const BuyerForm = ({ show, setShow }) => {
         </Form>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="secondary" onClick={() => savedDataCheckout()}>Save Changes</Button>
+        <Button variant="primary" onClick={() => savedDataCheckout()}>Save Changes</Button>
       </Modal.Footer>
     </Modal>
+    </>
   );
 };
 
