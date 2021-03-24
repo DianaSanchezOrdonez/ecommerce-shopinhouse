@@ -1,0 +1,17 @@
+.resume-items {
+    padding: 0.5rem;
+    border: 1px solid var(--color-light);
+    height: 200px;
+    overflow: auto;
+    border-radius: .25rem;
+}
+
+.resume-item-title, .resume-item-price {
+    font-size: 0.8rem;
+    font-family: Siro-SemiBold;
+}
+
+.resume-item-title {
+    width: 80%;
+    margin-left: 1rem;
+}

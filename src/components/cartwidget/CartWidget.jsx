@@ -23,7 +23,7 @@ export const CartWidget = memo(
 
     return (
       <div className="d-flex-row">
-        <span className="span-username">{dataUser ? `Hola, ${username}` : " "}</span>
+        <span className="span-username">{dataUser ? `Hi, ${username}` : " "}</span>
 
         <button
           className={CartContextUse.cart.length ? "nav-icon" : "hide-list"}

@@ -17,7 +17,7 @@ const Cart = () => {
   ) : (
     <div className="home d-flex-column">
       <span>No hay items</span>
-      <button className="button-primary" onClick={() => history.push("/")}>
+      <button className="button-primary" onClick={() => history.push("/category")}>
         {" "}
         Ir a comprar{" "}
       </button>

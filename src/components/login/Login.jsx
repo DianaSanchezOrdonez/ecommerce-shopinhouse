@@ -25,6 +25,8 @@ const Login = ({show, setShow}) => {
   })
   const [errors, setErrors] = useState({});
 
+  const db = getFirestore();
+
   const handleClose = () => setShow(false);
 
   const handleChange = (event) => {
@@ -41,7 +43,7 @@ const Login = ({show, setShow}) => {
     console.log('errors', Object.values(errors))
     if(errors){
       AuthContextUse.methodsAuth.createEmailPassword(values.email, values.password); 
-      const db = getFirestore();
+      
       db.collection("Users").add({
           id: AuthContextUse.currentUser.uid,
           username: values.username,
@@ -69,7 +71,7 @@ const Login = ({show, setShow}) => {
       console.log('You couldn register')
     }
   }
-
+  
   return (
     <Modal show={show} onHide={handleClose}>
       <Modal.Body>

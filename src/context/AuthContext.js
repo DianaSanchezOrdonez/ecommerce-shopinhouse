@@ -47,18 +47,31 @@ const AuthContextProvider = ({ children }) => {
   };
 
   const signInWithGoogle = () => {
-    
-    return auth
+    auth
       .signInWithPopup(provider)
       .then((result) => {
-        let credential = result.credential;
-        let token = credential.accessToken;
-        let user = result.user;
-
-        console.log("user with google", user);
+        return setDataUser({uid:result.user.uid, username: result.user.displayName, email: result.user.email})
       })
       .catch((error) => console.log("error", error));
+    
+      loginWithGoogle(dataUser)
   };
+
+  const loginWithGoogle = (user) => {
+    getFirestore()
+    .collection("Users").add({
+      id: user.uid,
+      username: user.username,
+      email : user.email
+    })
+    .then((docRef) => {
+        console.log("User written with ID: ", docRef.id);
+    })
+    .catch((error) => {
+        console.error("Error adding User: ", error);
+    });
+  }
+
 
   if(currentUser) {
     getFirestore()
@@ -67,7 +80,7 @@ const AuthContextProvider = ({ children }) => {
     .get()
     .then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
-        return setDataUser({username: doc.data().username, email: doc.data().email})
+        return setDataUser({uid: doc.data().uid, username: doc.data().username, email: doc.data().email})
       });
     })
     .catch((error) => {
