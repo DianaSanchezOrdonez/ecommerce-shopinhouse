@@ -9,7 +9,7 @@ Una plataforma web de e-commerce que busca favorecer a aquellos pequeños negoci
 
 ## Installation
 
-**Clonar** con el repositorio con el siguiente comando
+**Clonar** el repositorio con el siguiente comando
 
 ```bash
 git clone https://github.com/DianaSanchezOrdonez/ecommerce-shopinhouse.git
@@ -19,11 +19,6 @@ Y en tu terminal ```npm install```
 para traer todas las dependencias del repositorio.
 
 ## Tecnologías aplicadas
-
-* Librería React.js
-* CSS
-* Servicios de Firebase: Cloud firestore, Firebase Authentification
-* API Mercado Pago
 
 ### Librería React.js
 
