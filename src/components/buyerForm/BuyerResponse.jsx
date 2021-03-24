@@ -26,7 +26,7 @@ const BuyerResponse = ({isSubmited, setIsSubmited, docRef, urlPayment}) => {
         {docRef ? <><img className="img-sucess" src={wellDone} alt="img-success-buy"></img>
         <h2>Successful purchase!</h2>
         <h4>Order ID: {docRef}</h4>
-        <h4><a href={urlPayment} target="_blank">Payment Link</a></h4> </> : <Loader /> }
+        <h4><a className="color-primary" href={urlPayment} target="_blank">Payment Link</a></h4> </> : <Loader /> }
         
       </Modal.Body>
     </Modal>
