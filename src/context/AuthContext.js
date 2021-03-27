@@ -53,11 +53,11 @@ const AuthContextProvider = ({ children }) => {
     auth
       .signInWithPopup(provider)
       .then((result) => {
-        return setDataUser({uid:result.user.uid, username: result.user.displayName, email: result.user.email})
+        setDataUser({uid:result.user.uid, username: result.user.displayName, email: result.user.email});
+        setSaveUser(true);
       })
       .catch((error) => console.log("error", error));
     
-      loginWithGoogle(dataUser) 
   };
 
   const loginWithGoogle = (user) => {
