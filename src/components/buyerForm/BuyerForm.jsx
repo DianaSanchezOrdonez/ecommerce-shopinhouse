@@ -84,7 +84,7 @@ const BuyerForm = ({ show, setShow }) => {
 
     setIsSubmited(true);
     setShow(false);
-    methods.clear();
+    //methods.clear();
     //Reducir el stock en mi bd
   };
 

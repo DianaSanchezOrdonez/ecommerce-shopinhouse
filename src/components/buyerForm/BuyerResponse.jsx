@@ -4,11 +4,16 @@ import { Modal } from "react-bootstrap";
 import wellDone from "../../assets/wellDone.svg";
 import Loader from "../loader/Loader";
 
+import { CartContext } from "../../context/CartContext";
+
 import "./buyerform.css";
 
 const BuyerResponse = ({isSubmited, setIsSubmited, docRef, urlPayment}) => {
-
-    const handleClose = () => setIsSubmited(false);
+    const { methods } = useContext(CartContext);
+    const handleClose = () => {
+      methods.clear();
+      setIsSubmited(false);
+    }
     const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {

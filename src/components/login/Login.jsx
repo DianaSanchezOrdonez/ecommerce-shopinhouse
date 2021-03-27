@@ -89,7 +89,7 @@ const Login = ({show, setShow}) => {
               </Form.Group>
               <span className="d-block text-center">or</span>
               <div className="d-flex-row justify-content-between">
-                <button className="btn-register-social" onClick={() => AuthContextUse.methodsAuth.signInWithGoogle()}>
+                <button className="btn-register-social" onClick={() => { AuthContextUse.methodsAuth.signInWithGoogle();  setShow(false)}}>
                   <AiOutlineGoogle /> Login with Google
                 </button>
               </div>
