@@ -12,7 +12,7 @@ import "./buyerform.css";
 const BuyerForm = ({ show, setShow }) => {
   const handleClose = () => setShow(false);
   const { dataUser } = useContext(AuthContext);
-  const { cart, finalTotal } = useContext(CartContext);
+  const { methods, cart, finalTotal } = useContext(CartContext);
   const [docRef, setDocRef] = useState();
   const [urlPayment, setUrlPayment] = useState();
   const [isSubmited, setIsSubmited] = useState(false);
@@ -84,6 +84,7 @@ const BuyerForm = ({ show, setShow }) => {
 
     setIsSubmited(true);
     setShow(false);
+    methods.clear();
     //Reducir el stock en mi bd
   };
 

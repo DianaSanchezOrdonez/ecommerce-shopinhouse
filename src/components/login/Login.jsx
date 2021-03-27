@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 
 import { Modal, Tabs, Tab, Form } from "react-bootstrap";
 import { FaFacebookF } from "react-icons/fa";
@@ -27,6 +27,11 @@ const Login = ({show, setShow}) => {
 
   const db = getFirestore();
 
+  useEffect(() => {
+    setErrors(validateInfo(values));
+    return () => { }
+  }, [values])
+
   const handleClose = () => setShow(false);
 
   const handleChange = (event) => {
@@ -41,22 +46,8 @@ const Login = ({show, setShow}) => {
     event.preventDefault();
     setErrors(validateInfo(values));
     console.log('errors', Object.values(errors))
-    if(errors){
-      AuthContextUse.methodsAuth.createEmailPassword(values.email, values.password); 
-      
-      db.collection("Users").add({
-          id: AuthContextUse.currentUser.uid,
-          username: values.username,
-          email : values.email,
-          password : values.password
-      })
-      .then((docRef) => {
-          console.log("User written with ID: ", docRef.id);
-      })
-      .catch((error) => {
-          console.error("Error adding User: ", error);
-      });
-    
+    if(Object.values(errors).length === 3){
+      AuthContextUse.methodsAuth.createEmailPassword(values.username, values.email, values.password); 
     }else{
       console.log('You couldn register')
     }
@@ -64,8 +55,8 @@ const Login = ({show, setShow}) => {
 
   const loginForm = (event) => {
     event.preventDefault();
-    setErrors(validateInfo(values));
-    if(errors){
+    /* setErrors(validateInfo(values)); */
+    if((Object.values(errors).length === 4){
       AuthContextUse.methodsAuth.signInEmailPassword(values.emailLogin, values.passwordLogin); 
     }else{
       console.log('You couldn register')
@@ -98,7 +89,7 @@ const Login = ({show, setShow}) => {
               </Form.Group>
               <span className="d-block text-center">or</span>
               <div className="d-flex-row justify-content-between">
-                <button className="btn-register-social">
+                <button className="btn-register-social" onClick={() => AuthContextUse.methodsAuth.signInWithFacebook()}>
                   <FaFacebookF /> Login with Facebook
                 </button>
                 <button className="btn-register-social" onClick={() => AuthContextUse.methodsAuth.signInWithGoogle()}>

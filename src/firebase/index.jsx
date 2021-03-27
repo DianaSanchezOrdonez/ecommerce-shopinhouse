@@ -23,5 +23,5 @@ export const getFirestore = () => {
 
 export const auth = firebase.auth();
 export const provider = new firebase.auth.GoogleAuthProvider();
-
+export const providerFacebook = new firebase.auth.FacebookAuthProvider();
 

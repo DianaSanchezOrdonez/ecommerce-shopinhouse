@@ -1,13 +1,14 @@
 import React, { createContext, useState, useEffect } from "react";
 
 /*-------------------AUTHENTICATION FIREBASE----------------------------*/
-import { auth, provider, getFirestore } from "../firebase/index";
+import { auth, provider, providerFacebook, getFirestore } from "../firebase/index";
 
 export const AuthContext = createContext();
 
 const AuthContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState();
-  const [dataUser, setDataUser] = useState()
+  const [dataUser, setDataUser] = useState();
+  const [saveUser, setSaveUser] = useState(false);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(user => {
@@ -15,16 +16,19 @@ const AuthContextProvider = ({ children }) => {
     })
 
     return unsubscribe
-  }, []) 
+  }, [currentUser]) 
 
-  const createEmailPassword = (email, password) => {
+  const createEmailPassword = (username, email, password) => {
     console.log("email", email);
-    return auth
+    auth
       .createUserWithEmailAndPassword(email, password)
       .then((user) => {
-        return user
+        return  setDataUser({uid:user.user.uid, username: username, email: email})
+        /* signInWithoutProvider(dataUser) */
       })
       .catch((error) => console.log("error", error));
+
+      setSaveUser(true);
   };
 
   const signInEmailPassword = (email, password) => {
@@ -42,9 +46,26 @@ const AuthContextProvider = ({ children }) => {
       .signOut()
       .then(() => {
         console.log("SignOut...");
+        setDataUser()
       })
       .catch((error) => console.log("error", error));
   };
+
+  const signInWithoutProvider = (user) => {
+    getFirestore()
+    .collection("Users").add({
+      id: user.uid,
+      username: user.username,
+      email : user.email,
+      password : user.password
+    })
+    .then((docRef) => {
+        console.log("User written with ID: ", docRef.id);
+    })
+    .catch((error) => {
+        console.error("Error adding User: ", error);
+    });
+  }
 
   const signInWithGoogle = () => {
     auth
@@ -54,7 +75,8 @@ const AuthContextProvider = ({ children }) => {
       })
       .catch((error) => console.log("error", error));
     
-      loginWithGoogle(dataUser)
+      /* loginWithGoogle(dataUser) */
+      setSaveUser(true);
   };
 
   const loginWithGoogle = (user) => {
@@ -70,6 +92,36 @@ const AuthContextProvider = ({ children }) => {
     .catch((error) => {
         console.error("Error adding User: ", error);
     });
+  }
+
+  const signInWithFacebook = () => {
+      /* loginWithGoogle(dataUser) */
+    auth
+      .signInWithPopup(providerFacebook)
+      .then((result) => {
+        console.log('welcome to facebook', result.user)
+        /* return setDataUser({uid:result.user.uid, username: result.user.displayName, email: result.user.email}) */
+      })
+      .catch((error) => console.log("error", error));
+  };
+
+  if(saveUser && dataUser){
+    console.log('saveUser', saveUser)
+    console.log('dataUser', dataUser)
+    getFirestore()
+    .collection("Users").add({
+      id: dataUser.uid,
+      username: dataUser.username,
+      email : dataUser.email
+    })
+    .then((docRef) => {
+        console.log("User written with ID: ", docRef.id);
+    })
+    .catch((error) => {
+        console.error("Error adding User: ", error);
+    });
+
+    setSaveUser(false)
   }
 
   if(currentUser) {
@@ -94,7 +146,7 @@ const AuthContextProvider = ({ children }) => {
         value={{
             dataUser,
             currentUser,
-            methodsAuth: {createEmailPassword, signInEmailPassword, signOut, signInWithGoogle}
+            methodsAuth: {createEmailPassword, signInEmailPassword, signOut, signInWithGoogle, signInWithFacebook}
         }}
       >
         {children}
