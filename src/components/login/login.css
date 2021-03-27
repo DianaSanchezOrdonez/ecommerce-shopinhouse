@@ -1,5 +1,5 @@
 .btn-register-social {
-    width: 49%;
+    width: 100%;
     background-color: var(--color-light);
     margin: 5px 5px 5px 0;
     padding: 10px;
@@ -8,6 +8,11 @@
     border-radius: .25rem;
     color: var(--color-dark);
     cursor: pointer;
+}
+
+.btn-register-social:hover {
+    background-color: var(--color-dark);
+    color: var(--color-white);
 }
 
 .btn-submit {
@@ -20,6 +25,10 @@
     border-radius: .25rem;
     color: var(--color-white);
     cursor: pointer;
+}
+
+.btn-submit:hover{
+    background-color: #007bff;
 }
 
 .error-label {
