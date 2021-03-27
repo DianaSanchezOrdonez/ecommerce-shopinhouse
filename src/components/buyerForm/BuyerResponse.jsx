@@ -10,10 +10,7 @@ import "./buyerform.css";
 
 const BuyerResponse = ({isSubmited, setIsSubmited, docRef, urlPayment}) => {
     const { methods } = useContext(CartContext);
-    const handleClose = () => {
-      methods.clear();
-      setIsSubmited(false);
-    }
+    const handleClose = () => setIsSubmited(false);
     const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {
